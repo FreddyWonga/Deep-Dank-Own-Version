@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Doorway : MonoBehaviour
 {
@@ -8,5 +9,10 @@ public class Doorway : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawRay(ray);
+    }
+
+    internal void Remove(Doorway availableDoorway)
+    {
+        throw new NotImplementedException();
     }
 }
