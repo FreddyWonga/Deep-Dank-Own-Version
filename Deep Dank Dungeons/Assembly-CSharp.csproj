@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Camera_Follow.cs" />
      <Compile Include="Assets\Scripts\Doorway.cs" />
      <Compile Include="Assets\Scripts\EndRoom.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI.cs" />
      <Compile Include="Assets\Scripts\LevelBuilder.cs" />
      <Compile Include="Assets\Scripts\Mouselook.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
