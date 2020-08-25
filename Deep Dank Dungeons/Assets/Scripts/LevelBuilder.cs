@@ -177,6 +177,7 @@ public class LevelBuilder : MonoBehaviour
                 else
                 {
                     Debug.LogError("Overlap detected");
+                    //ResetLevelGenerator();
                     return true;
                 }
             }
