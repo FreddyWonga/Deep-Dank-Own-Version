@@ -7,6 +7,7 @@ TagManager:
   - Exit
   - Ground
   - Enemy
+  - Rooms
   layers:
   - Default
   - TransparentFX

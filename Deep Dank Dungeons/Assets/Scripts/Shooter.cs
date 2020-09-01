@@ -2,28 +2,57 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Kyana Bowers
-
 public class Shooter : MonoBehaviour
 {
-    //this script is connected to an empty game object in front of the player
-    //requires a bullet prefab to fire.
-
     public Rigidbody projectile;
-    public float speed = 40f;
+    public float speed = 500f;
+    public float mana = 3f;
+    public float max_mana = 3f;
+    public float mana_regen_speed = 1f;
+    private bool RegenRunning;
 
-    /// <summary>
-    /// every time the user clicks the player fires a projectile
-    /// </summary>
+
+    // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0));
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Rigidbody instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as Rigidbody;
-
-            instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
-
-            GameObject.Destroy(instantiatedProjectile.gameObject, 0.5f);
+            if (mana >= 1f)
+            {
+                mana -= 1f;
+                //StopCoroutine(ManaRegen());
+                Rigidbody instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as Rigidbody;
+                instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
+                GameObject.Destroy(instantiatedProjectile.gameObject, 10f);
+                if (RegenRunning == false)
+                {
+                    StartCoroutine(ManaRegen());
+                }
+            }
         }
+        Debug.Log(mana);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("HIT");
+        GameObject.Destroy(projectile);
+    }
+
+
+    IEnumerator ManaRegen()
+    {
+        RegenRunning = true;
+        Debug.Log("WE BE RUNNING");
+        yield return new WaitForSeconds(5);
+        if (mana != max_mana)
+        {
+            for (; mana < max_mana;)
+            {
+                mana += mana_regen_speed * Time.deltaTime;
+            }
+            RegenRunning = false;
+        }
+        
+
     }
 }
