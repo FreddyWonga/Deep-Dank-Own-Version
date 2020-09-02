@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    //public void health = 3f;
-    //public void damage = 1f;
-    //public void score = 0f;
+    public float damage = 1f;
+    public float score = 0f;
 
 
 

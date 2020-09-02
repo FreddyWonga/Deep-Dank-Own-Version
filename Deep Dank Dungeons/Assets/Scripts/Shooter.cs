@@ -20,7 +20,10 @@ public class Shooter : MonoBehaviour
             if (mana >= 1f)
             {
                 mana -= 1f;
-                //StopCoroutine(ManaRegen());
+                if (RegenRunning == true)
+                {
+                    StopCoroutine(ManaRegen());
+                }
                 Rigidbody instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as Rigidbody;
                 instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
                 GameObject.Destroy(instantiatedProjectile.gameObject, 10f);
@@ -30,7 +33,6 @@ public class Shooter : MonoBehaviour
                 }
             }
         }
-        Debug.Log(mana);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -42,13 +44,12 @@ public class Shooter : MonoBehaviour
     IEnumerator ManaRegen()
     {
         RegenRunning = true;
-        Debug.Log("WE BE RUNNING");
         yield return new WaitForSeconds(5);
         if (mana != max_mana)
         {
             for (; mana < max_mana;)
             {
-                mana += mana_regen_speed * Time.deltaTime;
+                mana += mana_regen_speed;
             }
             RegenRunning = false;
         }

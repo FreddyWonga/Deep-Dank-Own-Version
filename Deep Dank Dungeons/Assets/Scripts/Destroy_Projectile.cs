@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Destroy_Projectile : MonoBehaviour
 {
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.tag == "Rooms")
+        if (other.tag == "Rooms")
         {
-            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
+       
+        if (other.tag == "Doors")
+        {
+            Destroy(this.gameObject);
         }
     }
 }

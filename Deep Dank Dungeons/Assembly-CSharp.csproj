@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AI_StateManager.cs" />
+    <Compile Include="Assets\Scripts\BinaryTree.cs" />
     <Compile Include="Assets\Scripts\Camera_Follow.cs" />
     <Compile Include="Assets\Scripts\Destroy_Projectile.cs" />
     <Compile Include="Assets\Scripts\Doorway.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Scripts\Mouselook.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\PortalFinish.cs" />
     <Compile Include="Assets\Scripts\Projectile\SpawnProjectiles.cs" />
     <Compile Include="Assets\Scripts\ProjectileDamage.cs" />
     <Compile Include="Assets\Scripts\ProjectileDamage1.cs" />

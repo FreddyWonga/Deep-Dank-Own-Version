@@ -53,10 +53,10 @@ public class LevelBuilder : MonoBehaviour
         //level generator finished 
         Debug.Log("level generator finished");
 
-        ////place player
+        //place player
         //player = Instantiate(playerPrefab) as PlayerController;
-        //player.transform.position = startRoom.playerStart.position;
-        //player.transform.rotation = startRoom.playerStart.rotation;
+        player.transform.position = new Vector3(0, 1, 0);
+        player.transform.rotation = startRoom.playerStart.rotation;
     }
     void PlaceStartRoom()
     {
@@ -87,7 +87,7 @@ public class LevelBuilder : MonoBehaviour
         Room currentRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Count)]) as Room;
         currentRoom.transform.parent = this.transform;
 
-        //create dorway list to loop over
+        //create doorway list to loop over
         List<Doorway> allAvailableDoorways = new List<Doorway>(availableDoorways);
         List<Doorway> currentRoomDoorways = new List<Doorway>();
         AddDorwaysToList(currentRoom, ref currentRoomDoorways);

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1057813172}
   m_Layer: 0
   m_Name: Doorways
-  m_TagString: Untagged
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -455,6 +455,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3025670002336931510, guid: ed76b2e67656e2e40b37ffc94d31440a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Doors
+      objectReference: {fileID: 0}
     - target: {fileID: 4631421004501514676, guid: ed76b2e67656e2e40b37ffc94d31440a,
         type: 3}
       propertyPath: m_Name
@@ -556,6 +561,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025670002336931510, guid: ed76b2e67656e2e40b37ffc94d31440a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Doors
       objectReference: {fileID: 0}
     - target: {fileID: 4631421004501514676, guid: ed76b2e67656e2e40b37ffc94d31440a,
         type: 3}
