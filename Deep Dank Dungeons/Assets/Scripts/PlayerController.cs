@@ -10,9 +10,16 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public LevelBuilder levelBuilder;
 
+    public Animator movement;
+
     public float speed = 12f;
 
     Vector3 velocity;
+
+    private void Awake()
+    {
+        movement = GameObject.FindGameObjectWithTag("Character").GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -28,6 +35,15 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
+
+        if(x != 0 || z!= 0)
+        {
+            movement.SetBool("move", true);
+        }
+        else
+        {
+            movement.SetBool("move", false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

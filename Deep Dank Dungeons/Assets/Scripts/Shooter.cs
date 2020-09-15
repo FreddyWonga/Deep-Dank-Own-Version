@@ -10,6 +10,12 @@ public class Shooter : MonoBehaviour
     public float max_mana = 3f;
     public float mana_regen_speed = 1f;
     private bool RegenRunning;
+    public Animator shoot;
+
+    private void Awake()
+    {
+        shoot = GameObject.FindGameObjectWithTag("Character").GetComponent<Animator>();
+    }
 
 
     // Update is called once per frame
@@ -24,6 +30,9 @@ public class Shooter : MonoBehaviour
                 {
                     StopCoroutine(ManaRegen());
                 }
+
+                shoot.SetTrigger("cast");
+
                 Rigidbody instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as Rigidbody;
                 instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
                 GameObject.Destroy(instantiatedProjectile.gameObject, 10f);
