@@ -6,7 +6,7 @@ public class Destroy_Projectile : MonoBehaviour
 {
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Rooms")
+        if (other.tag == "Rooms" || other.tag == "Doors")
         {
             Destroy(this.gameObject);
         }

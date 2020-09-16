@@ -8,16 +8,20 @@ public class LevelBuilder : MonoBehaviour
     public List<Room> roomPrefabs = new List<Room>();
     public Vector2 iterationRange = new Vector2(3, 10);
     public PlayerController playerPrefab;
+    public AI_StateManager enemyPrefab;
+    public LinkedList<Transform> enemySpawnLocation;
 
     List<Doorway> availableDoorways = new List<Doorway>();
 
+    EnemySpawn enemySpawn;
     StartRoom startRoom;
     EndRoom endRoom;
     List<Room> placedRooms = new List<Room>();
-
     LayerMask roomLayerMask;
-
     PlayerController player;
+    AI_StateManager enemy;
+
+    public UnityEngine.AI.NavMeshSurface[] surfaces;
 
     private void Start()
     {
@@ -55,7 +59,7 @@ public class LevelBuilder : MonoBehaviour
 
         //place player
         //player = Instantiate(playerPrefab) as PlayerController;
-        player.transform.position = new Vector3(0, 1, 0);
+        GameObject.FindWithTag("Player").transform.position = new Vector3(0, 2, 0);
         player.transform.rotation = startRoom.playerStart.rotation;
     }
     void PlaceStartRoom()
@@ -123,6 +127,9 @@ public class LevelBuilder : MonoBehaviour
 
                 availableDoorway.gameObject.SetActive(false);
                 availableDoorways.Remove(availableDoorway);
+
+                //Spawns in the enemy in the room
+                currentRoom.GetComponentInChildren<EnemySpawn>().EnemySpawner();
 
                 //exit the loop
                 break;
