@@ -157,7 +157,7 @@ public class Wander : BehaviourState
     public override void Initalize()
     {
         stateManager.Agent.isStopped = false;
-        FindNewWanderPoint();
+        //FindNewWanderPoint();
     }
 
     public override void Update()
@@ -165,11 +165,11 @@ public class Wander : BehaviourState
         if (targetPos != null)
         {
             // If AI has a target then switch states
-            distance = Vector3.Distance(stateManager.transform.position, (Vector3)targetPos);
-            if (distance <= stateManager.Agent.stoppingDistance)
-            {
-                FindNewWanderPoint();
-            }
+            //distance = Vector3.Distance(stateManager.transform.position, (Vector3)targetPos);
+            //if (distance <= stateManager.Agent.stoppingDistance)
+            //{
+            //    FindNewWanderPoint();
+            //}
         }
     }
 
@@ -190,23 +190,23 @@ public class Wander : BehaviourState
         }
     }
 
-    Vector3 GetRandomPointInBounds()
-    {
-        float randomX = Random.Range(-boundBox.extents.x, boundBox.extents.x);
-        float randomZ = Random.Range(-boundBox.extents.z, boundBox.extents.z);
-        Vector3 randomVector = new Vector3(randomX, stateManager.transform.position.y + boundBox.center.y, randomZ);
+    //Vector3 GetRandomPointInBounds()
+    //{
+        //float randomX = Random.Range(-boundBox.extents.x, boundBox.extents.x);
+        //float randomZ = Random.Range(-boundBox.extents.z, boundBox.extents.z);
+        //Vector3 randomVector = new Vector3(randomX, stateManager.transform.position.y + boundBox.center.y, randomZ);
         //if(boundBox.Contains(randomVector) == false)
         //{
         //    randomVector = GetRandomPointInBounds();
         //}
-        return randomVector;
-    }
+        //return randomVector;
+    //}
 
-    void FindNewWanderPoint()
-    {
-        targetPos = GetRandomPointInBounds();
-        stateManager.Agent.SetDestination((Vector3)targetPos);
-    }
+    //void FindNewWanderPoint()
+    //{
+    //    targetPos = GetRandomPointInBounds();
+    //    stateManager.Agent.SetDestination((Vector3)targetPos);
+    //}
 }
 
 [System.Serializable]
@@ -262,6 +262,7 @@ public class Chase : BehaviourState
             if (previousState != null)
             {
                 stateManager.SetState(previousState);
+                movement.SetBool("moving", false);
             }
         }
     }

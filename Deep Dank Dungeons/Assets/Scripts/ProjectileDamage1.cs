@@ -1,19 +1,19 @@
-﻿//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//public class ProjectileDamage1 : MonoBehaviour
-//{
-//    public float damageValue = 1f;
+public class ProjectileDamage1 : MonoBehaviour
+{
+    public int projectileDamage = 1;
 
-//    private void OnTriggerEnter(Collider other)
-//    {
-//        if (other.tag == "Enemy")
-//        {
-//            if (other.GetComponent<Health>().GetCurrentHealth() > 0)
-//            {
-//                other.GetComponent<Health>().ApplyDamage(damageValue);
-//            }
-//        }
-//    }
-//}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            if (other.GetComponent<Enemy_Health>().currentHealth > 0)
+            {
+                other.GetComponent<Enemy_Health>().ApplyDamage(projectileDamage);
+            }
+        }
+    }
+}
