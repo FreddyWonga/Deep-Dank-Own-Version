@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
@@ -294,8 +296,20 @@ public class Attack : BehaviourState
             Debug.Log(collider.tag);
             if (collider.CompareTag("Player") == true)
             {
-                stab.SetTrigger("attacking");
+                //stab.SetBool("attacking", true);
+                //stateManager.SetState(previousState);
+                StartCoroutine(AttackCoroutine());
             }
+        }
+    }
+
+    IEnumerator AttackCoroutine()
+    {
+        //stab.SetBool("attacking", true);
+        WaitForSeconds(1);
+        if(collider.CompareTag("Player") == true)
+        {
+            Health.health -= 1;
         }
     }
 

@@ -2498,6 +2498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e38143d592e31148be98f2522d7db71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BoneExplode: {fileID: 7210249998521484374, guid: 138ba3273b717784fa2b4efaa93bd828,
+    type: 3}
   currentHealth: 3
   enemy_max_health: 3
 --- !u!1 &7935057624180294393
