@@ -41,4 +41,11 @@ public class Health : MonoBehaviour
             }
         }
     }
+
+    public void DoDamage(int damageAmount)
+    {
+       
+        health -= damageAmount;
+    }
+
 }
