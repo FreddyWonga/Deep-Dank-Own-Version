@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EquipmentManager : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class EquipmentManager : MonoBehaviour
     public Equipment currentChest;
     public Equipment currentStaff;
 
+    public GameObject itemPickup;
+    public Text itemPickupText;
     public Shooter shooter;
 
     private void Start()
@@ -61,25 +64,25 @@ public class EquipmentManager : MonoBehaviour
         {
             SetHelmet(equipment);
             manaHelmet.gameObject.SetActive(true);
-            GetComponent<Shooter>().max_mana += currentHelmet.data.bonus;
+            GetComponentInChildren<Shooter>().max_mana += currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Mana_Chest")
         {
             SetChest(equipment);
             manaChest.gameObject.SetActive(true);
-            GetComponent<Shooter>().max_mana += currentChest.data.bonus;
+            GetComponentInChildren<Shooter>().max_mana += currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Magma_Helmet")
         {
             SetHelmet(equipment);
             magmaHelmet.gameObject.SetActive(true);
-            GetComponent<Shooter>().max_mana += currentHelmet.data.bonus;
+            GetComponentInChildren<Shooter>().max_mana += currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Magma_Chest")
         {
             SetChest(equipment);
             magmaChest.gameObject.SetActive(true);
-            GetComponent<Shooter>().max_mana += currentChest.data.bonus;
+            GetComponentInChildren<Shooter>().max_mana += currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Green Staff")
         {
@@ -131,22 +134,22 @@ public class EquipmentManager : MonoBehaviour
         else if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Mana_Helmet")
         {
             manaHelmet.gameObject.SetActive(false);
-            GetComponent<Shooter>().max_mana -= currentHelmet.data.bonus;
+            GetComponentInChildren<Shooter>().max_mana -= currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Mana_Chest")
         {
             manaChest.gameObject.SetActive(false);
-            GetComponent<Shooter>().max_mana -= currentChest.data.bonus;
+            GetComponentInChildren<Shooter>().max_mana -= currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Magma_Helmet")
         {
             magmaHelmet.gameObject.SetActive(false);
-            GetComponent<Shooter>().max_mana -= currentHelmet.data.bonus;
+            GetComponentInChildren<Shooter>().max_mana -= currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Magma_Chest")
         {
             magmaChest.gameObject.SetActive(false);
-            GetComponent<Shooter>().max_mana -= currentChest.data.bonus;
+            GetComponentInChildren<Shooter>().max_mana -= currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Green Staff")
         {
@@ -208,4 +211,23 @@ public class EquipmentManager : MonoBehaviour
         armour.transform.position = itemDropLocation.transform.position;
         armour.transform.localRotation = itemDropLocation.transform.rotation;
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "ItemDrop")
+        {
+            itemPickup.SetActive(true);
+            itemTextChange(other.gameObject.name);
+        }
+        else
+        {
+            itemPickup.SetActive(false);
+        }
+    }
+
+    public void itemTextChange(string itemName)
+    {
+        itemPickupText.text = "E to equip";
+    }
+
 }

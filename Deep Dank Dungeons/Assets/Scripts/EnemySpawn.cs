@@ -5,10 +5,21 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public Transform enemySpawnLoc1;
+    public Transform[] spawns;
+    public int spawnAmount = 2;
+
+    private int spawnIndex = 0;
 
     public void EnemySpawner()
     {
-        Instantiate(enemyPrefab, enemySpawnLoc1.transform.position, enemySpawnLoc1.transform.rotation);
+        for (int i = 0; i < spawnAmount; i++)
+        {
+            Instantiate(enemyPrefab, spawns[spawnIndex].transform.position, spawns[spawnIndex].transform.rotation);
+            spawnIndex++;
+            if(spawnIndex >= spawnAmount) 
+            {
+                spawnIndex = 0;
+            }
+        }
     }
 }

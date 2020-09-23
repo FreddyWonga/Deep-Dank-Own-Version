@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Equipment : MonoBehaviour
 {
     public ArmourData data;
-
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
@@ -15,6 +15,10 @@ public class Equipment : MonoBehaviour
                 other.GetComponent<EquipmentManager>().EquipArmour(this);
             }
         }
+        //else
+        //{
+        //    equiptPopup.promptOn = false;
+        //}
     }
 }
 

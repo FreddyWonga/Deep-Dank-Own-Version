@@ -9,6 +9,9 @@ TagManager:
   - Enemy
   - Rooms
   - Doors
+  - Character
+  - EnemyAttack
+  - ItemDrop
   layers:
   - Default
   - TransparentFX

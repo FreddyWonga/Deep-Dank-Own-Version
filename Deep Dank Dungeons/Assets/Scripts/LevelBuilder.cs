@@ -59,8 +59,9 @@ public class LevelBuilder : MonoBehaviour
 
         //place player
         //player = Instantiate(playerPrefab) as PlayerController;
-        GameObject.FindWithTag("Player").transform.position = new Vector3(0, 2, 0);
-        player.transform.rotation = startRoom.playerStart.rotation;
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        player.transform.position = new Vector3(0, 2, 0);
+        //player.transform.rotation = startRoom.playerStart.rotation;
     }
     void PlaceStartRoom()
     {
@@ -129,7 +130,7 @@ public class LevelBuilder : MonoBehaviour
                 availableDoorways.Remove(availableDoorway);
 
                 //Spawns in the enemy in the room
-                currentRoom.GetComponentInChildren<EnemySpawn>().EnemySpawner();
+                currentRoom.GetComponent<EnemySpawn>().EnemySpawner();
 
                 //exit the loop
                 break;

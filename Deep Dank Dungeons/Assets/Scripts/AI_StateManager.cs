@@ -127,7 +127,7 @@ public class AI_StateManager : MonoBehaviour
 
     public void EnableSword()
     {
-        Collider[] collisions = Physics.OverlapBox((Vector3)transform.position, new Vector3(5, 5, 5));
+        Collider[] collisions = Physics.OverlapBox((Vector3)transform.position, new Vector3(4, 5, 4));
         foreach (Collider collider in collisions)
         {
             Debug.Log(collider.tag);
@@ -266,7 +266,7 @@ public class Chase : BehaviourState
             distance = Vector3.Distance(stateManager.transform.position, stateManager.Target.position);
             if (distance <= stateManager.Agent.stoppingDistance)
             {
-                stateManager.SetState(new Attack(stateManager));
+                stateManager.SetState(new Attack(stateManager, this));
                 movement.SetBool("moving", false);
             }
             else
@@ -308,9 +308,9 @@ public class Attack : BehaviourState
         targetPos = stateManager.transform.position;
         
     }
-    public Attack(AI_StateManager sm) : base(sm)
+    public Attack(AI_StateManager sm, BehaviourState prevState) : base(sm)
     {
-       
+        previousState = prevState;
     }
 
     public override void Update()
@@ -319,7 +319,7 @@ public class Attack : BehaviourState
 
 
 
-        Collider[] collisions = Physics.OverlapBox((Vector3)targetPos, new Vector3(5, 5, 5));
+        Collider[] collisions = Physics.OverlapBox((Vector3)targetPos, new Vector3(4, 5, 4));
         foreach (Collider collider in collisions)
         {
             Debug.Log(collider.tag);

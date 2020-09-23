@@ -74,6 +74,9 @@
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\Equipment.cs" />
     <Compile Include="Assets\Scripts\EquipmentManager.cs" />
+    <Compile Include="Assets\Scripts\EquipPrompt.cs" />
+    <Compile Include="Assets\Scripts\HealCostGenerator.cs" />
+    <Compile Include="Assets\Scripts\HealingTrade.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\LevelBuilder.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />

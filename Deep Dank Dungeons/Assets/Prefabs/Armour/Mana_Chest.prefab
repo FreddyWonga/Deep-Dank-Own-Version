@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 7273319605107112728}
   m_Layer: 0
   m_Name: Mana_Chest
-  m_TagString: Untagged
+  m_TagString: ItemDrop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
