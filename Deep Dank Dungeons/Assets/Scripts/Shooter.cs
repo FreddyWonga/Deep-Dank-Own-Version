@@ -53,12 +53,13 @@ public class Shooter : MonoBehaviour
     IEnumerator ManaRegen()
     {
         RegenRunning = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         if (mana != max_mana)
         {
-            for (; mana < max_mana;)
+            while (mana < max_mana)
             {
-                mana += mana_regen_speed;
+                mana += 1;
+                yield return new WaitForSeconds(mana_regen_speed);
             }
             RegenRunning = false;
         }

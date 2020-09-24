@@ -219,7 +219,15 @@ public class EquipmentManager : MonoBehaviour
             itemPickup.SetActive(true);
             itemTextChange(other.gameObject.name);
         }
-        else
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            itemPickup.SetActive(false);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "ItemDrop")
         {
             itemPickup.SetActive(false);
         }

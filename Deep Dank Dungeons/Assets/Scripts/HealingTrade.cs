@@ -8,14 +8,12 @@ public class HealingTrade : MonoBehaviour
     public Health health;
     public int currentCost;
     public int updatedCost;
-    public Player player;
     public GameObject itemPickup;
     public Text itemPickupText;
 
     void Start()
     {
         health = GetComponent<Health>();
-        player = GetComponent<Player>();
         currentCost = 500;
     }
 
@@ -23,27 +21,33 @@ public class HealingTrade : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            health = other.GetComponent<Health>();
             itemPickup.SetActive(true);
-            itemTextChange(other.gameObject.name);
+            itemTextChange();
             if (Input.GetKeyDown(KeyCode.E) == true)
             {
                 if (health.health != health.MaxHealth)
                 {
-                    if(player.score >= currentCost)
+                    if(Score.scoreValue >= currentCost)
                     {
                         health.health = health.MaxHealth;
+                        Score.scoreValue -= currentCost;
                         generateCost();
                     }
                 }
             }
         }
-        else
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
         {
             itemPickup.SetActive(false);
         }
     }
 
-    public void itemTextChange(string itemName)
+    public void itemTextChange()
     {
         itemPickupText.text = "E to heal -" + currentCost;
     }
