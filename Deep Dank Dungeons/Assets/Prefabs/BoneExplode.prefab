@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1949550307907649573}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 6210595196758630630}
   m_RootOrder: 0
@@ -168,7 +168,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 18.14
+      scalar: 100
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -3554,7 +3554,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 3
     type: 1
     collisionMode: 0
@@ -4780,7 +4780,7 @@ Transform:
   m_GameObject: {fileID: 2170909877402444799}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 6210595196758630630}
   m_RootOrder: 1
@@ -4921,7 +4921,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 18.14
+      scalar: 100
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -8307,7 +8307,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 3
     type: 1
     collisionMode: 0
@@ -9533,7 +9533,7 @@ Transform:
   m_GameObject: {fileID: 4919116456797937418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 6210595196758630630}
   m_RootOrder: 3
@@ -9674,7 +9674,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 18.14
+      scalar: 100
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -13060,7 +13060,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 3
     type: 1
     collisionMode: 0
@@ -14286,7 +14286,7 @@ Transform:
   m_GameObject: {fileID: 6457277411512371945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 6210595196758630630}
   m_RootOrder: 2
@@ -14427,7 +14427,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 18.14
+      scalar: 100
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -17813,7 +17813,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 3
     type: 1
     collisionMode: 0
@@ -19024,7 +19024,7 @@ GameObject:
   - component: {fileID: 4160936895752437146}
   - component: {fileID: 8213859200586907429}
   m_Layer: 0
-  m_Name: Bone Explode
+  m_Name: BoneExplode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19039,7 +19039,7 @@ Transform:
   m_GameObject: {fileID: 7210249998521484374}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 8165130984963801138}
   - {fileID: 6924144157363035445}
@@ -19184,7 +19184,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 18.14
+      scalar: 100
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -22570,7 +22570,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 3
     type: 1
     collisionMode: 0

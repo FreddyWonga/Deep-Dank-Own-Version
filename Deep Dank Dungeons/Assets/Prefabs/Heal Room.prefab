@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8489861334057501793}
-  - component: {fileID: 1363046951322158762}
   m_Layer: 0
   m_Name: EnemySpawnPoint
   m_TagString: Untagged
@@ -31,21 +30,6 @@ Transform:
   m_Father: {fileID: 6344663748939531725}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1363046951322158762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 773456684263238563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7186f58574474d4d885edc241a458a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7858735656276643822, guid: 23302b9d9897b29408a6898eb8081dc4,
-    type: 3}
-  enemySpawnLoc1: {fileID: 8489861334057501793}
 --- !u!1 &3301796626726630524
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,6 +64,19 @@ Transform:
   m_Father: {fileID: 6344663748939531725}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &781576052
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811762143278961676}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4, y: 0.4, z: 0.42035583}
+  m_Center: {x: 0.000000018038117, y: -0.000000007471634, z: 0.21399131}
 --- !u!64 &4634267194516652775
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -94,6 +91,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -725012648089265939, guid: f963868a3f981014fbf661eca261317f, type: 3}
+--- !u!114 &781576051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811762143278961676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55dc385688e07d2459e3969b3548c6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  currentCost: 500
+  updatedCost: 0
+  itemPickup: {fileID: 0}
+  itemPickupText: {fileID: 0}
 --- !u!1 &6032194049083156501
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +217,8 @@ GameObject:
   - component: {fileID: 6356271799539783080}
   - component: {fileID: 2054377091185888839}
   - component: {fileID: 9094779753527453636}
+  - component: {fileID: 1024871916}
+  - component: {fileID: 1024871917}
   m_Layer: 0
   m_Name: Heal Room
   m_TagString: Untagged
@@ -280,6 +296,52 @@ MonoBehaviour:
   m_Bidirectional: 1
   m_AutoUpdatePosition: 0
   m_Area: 0
+--- !u!114 &1024871916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6530477705297593164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc68432bed320249932a9144a9189ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: f041a617e292cea4db78b4931d8de72e, type: 2}
+--- !u!114 &1024871917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6530477705297593164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7186f58574474d4d885edc241a458a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 7858735656276643822, guid: 23302b9d9897b29408a6898eb8081dc4,
+    type: 3}
+  spawns:
+  - {fileID: 8489861334057501793}
+  spawnAmount: 1
 --- !u!1 &7922514925452471500
 GameObject:
   m_ObjectHideFlags: 0

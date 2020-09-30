@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
@@ -20,8 +22,9 @@ public class AI_StateManager : MonoBehaviour
     public Wander wanderState;
     public Chase chaseState;
     public Attack attackState;
-    public Animator stab;
-    public Animator movement;
+    public Animator Anim;
+   public GameObject Sword;
+    public bool canAttack = true;
 
     public string state;
     public string targetName;
@@ -43,8 +46,9 @@ public class AI_StateManager : MonoBehaviour
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
-        stab = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Animator>();
-        movement = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Animator>();
+        Anim = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Animator>();
+        canAttack = true;
+
     }
 
     // Start is called before the first frame update
@@ -120,6 +124,26 @@ public class AI_StateManager : MonoBehaviour
     {
         Target = null;
     }
+
+    public void EnableSword()
+    {
+        Collider[] collisions = Physics.OverlapBox((Vector3)transform.position, new Vector3(4, 5, 4));
+        foreach (Collider collider in collisions)
+        {
+            Debug.Log(collider.tag);
+            if (collider.CompareTag("Player") == true)
+            {
+                print("OUCH");
+                collider.GetComponentInParent<Health>().DoDamage(1);
+
+            }
+        }
+    }
+
+    public void DisableSword()
+    {
+        canAttack = true;
+    }
 }
 
 [System.Serializable]
@@ -188,6 +212,8 @@ public class Wander : BehaviourState
             Gizmos.DrawSphere((Vector3)targetPos, 0.5f);
 
         }
+        targetPos = stateManager.transform.position;
+        Gizmos.DrawCube((Vector3)stateManager.transform.position, new Vector3(4, 5, 4));
     }
 
     //Vector3 GetRandomPointInBounds()
@@ -240,7 +266,7 @@ public class Chase : BehaviourState
             distance = Vector3.Distance(stateManager.transform.position, stateManager.Target.position);
             if (distance <= stateManager.Agent.stoppingDistance)
             {
-                stateManager.SetState(new Attack(stateManager));
+                stateManager.SetState(new Attack(stateManager, this));
                 movement.SetBool("moving", false);
             }
             else
@@ -276,28 +302,47 @@ public class Attack : BehaviourState
     private Vector3? targetPos;
     private float distance;
     public Animator stab;
-
-    public Attack(AI_StateManager sm) : base(sm)
+    public override void Initalize()
     {
-
+       stab= stateManager.GetComponent<Animator>();
+        targetPos = stateManager.transform.position;
+        
+    }
+    public Attack(AI_StateManager sm, BehaviourState prevState) : base(sm)
+    {
+        previousState = prevState;
     }
 
     public override void Update()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawCube((Vector3)targetPos, new Vector3(5, 5, 0));
+        // Gizmos.color = Color.red;
 
 
-        Collider[] collisions = Physics.OverlapBox((Vector3)targetPos, new Vector3(5, 5, 0));
+
+        Collider[] collisions = Physics.OverlapBox((Vector3)targetPos, new Vector3(4, 5, 4));
         foreach (Collider collider in collisions)
         {
             Debug.Log(collider.tag);
             if (collider.CompareTag("Player") == true)
             {
-                stab.SetTrigger("attacking");
+                if (stateManager.canAttack)
+                {
+                    stab.SetTrigger("Attack");
+                   
+                    stateManager.SetState(previousState);
+                    stateManager.canAttack = false;
+
+                    //collider.GetComponent<playerscript>().damagevoid(1`00090000);
+
+                }
+
+
             }
+           
         }
     }
+
+   
 
     public override void Exit()
     {

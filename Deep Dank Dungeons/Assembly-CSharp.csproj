@@ -72,6 +72,11 @@
     <Compile Include="Assets\Scripts\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
+    <Compile Include="Assets\Scripts\Equipment.cs" />
+    <Compile Include="Assets\Scripts\EquipmentManager.cs" />
+    <Compile Include="Assets\Scripts\EquipPrompt.cs" />
+    <Compile Include="Assets\Scripts\HealCostGenerator.cs" />
+    <Compile Include="Assets\Scripts\HealingTrade.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\LevelBuilder.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
@@ -87,8 +92,10 @@
     <Compile Include="Assets\Scripts\Projectile\SpawnProjectiles.cs" />
     <Compile Include="Assets\Scripts\ProjectileDamage.cs" />
     <Compile Include="Assets\Scripts\ProjectileDamage1.cs" />
+    <Compile Include="Assets\Scripts\RandomLoot.cs" />
     <Compile Include="Assets\Scripts\Room.cs" />
     <Compile Include="Assets\Scripts\RoomActivate.cs" />
+    <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\Shooter.cs" />
     <Compile Include="Assets\Scripts\StartRoom.cs" />
     <Reference Include="Unity.Timeline.Editor">

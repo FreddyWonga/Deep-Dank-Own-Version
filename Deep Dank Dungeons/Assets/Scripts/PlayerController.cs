@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -53,4 +55,7 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
+   
+   
+
 }
