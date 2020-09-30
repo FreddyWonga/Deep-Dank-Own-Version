@@ -91,7 +91,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -725012648089265939, guid: f963868a3f981014fbf661eca261317f, type: 3}
---- !u!114 &781576051
+--- !u!114 &3729928232628954947
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -639,6 +639,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Heal Obby
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234565722058668276, guid: 82db99804fda65143acf602370a3a7a4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obby
       objectReference: {fileID: 0}
     - target: {fileID: 1443547994325849470, guid: 82db99804fda65143acf602370a3a7a4,
         type: 3}

@@ -11,7 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Lava Layer.unity
-    guid: 01509177f6e1c284d8ce76bee616e452
+    path: Assets/Scenes/HighScoreTable.unity
+    guid: a6d5ded92f5a25243865da2cb818f7c0
+  - enabled: 1
+    path: Assets/Scenes/DeathScreen.unity
+    guid: 28ba274840eb75c40ad09d7a602b4b76
   m_configObjects: {}

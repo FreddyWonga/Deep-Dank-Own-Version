@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class Health : MonoBehaviour
         if (health > MaxHealth)
         {
             health = MaxHealth;
+        }
+
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("DeathScreen");
         }
 
         for (int i = 0; i < Hearts.Length; i++)
@@ -46,6 +52,7 @@ public class Health : MonoBehaviour
     {
        
         health -= damageAmount;
+        if (health <= 0);
     }
 
 }

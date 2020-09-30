@@ -47,19 +47,19 @@ public class RandomLoot : MonoBehaviour
                 helmetDrop = Random.Range(1, 100);
                 if (helmetDrop <= 40)
                 {
-                    Instantiate(items.ElementAt(4), itemSpawnLoc.transform.position, Quaternion.Euler(0, 0, 0));
+                    Instantiate(items.ElementAt(4), itemSpawnLoc.transform.position, Quaternion.Euler(-90, 180, 0));
                 }
                 else if (41 <= helmetDrop && helmetDrop <= 70)
                 {
-                    Instantiate(items.ElementAt(5), itemSpawnLoc.transform.position, Quaternion.Euler(0, 0, 0));
+                    Instantiate(items.ElementAt(5), itemSpawnLoc.transform.position, Quaternion.Euler(-90, 180, 0));
                 }
                 else if (71 <= helmetDrop && helmetDrop <= 90)
                 {
-                    Instantiate(items.ElementAt(6), itemSpawnLoc.transform.position, Quaternion.Euler(0, 0, 0));
+                    Instantiate(items.ElementAt(6), itemSpawnLoc.transform.position, Quaternion.Euler(-90, 180, 0));
                 }
                 else if (91 <= helmetDrop)
                 {
-                    Instantiate(items.ElementAt(7), itemSpawnLoc.transform.position, Quaternion.Euler(0, 0, 0));
+                    Instantiate(items.ElementAt(7), itemSpawnLoc.transform.position, Quaternion.Euler(-90, 180, 0));
                 }
             }
             else if(randomItemType == 3)
@@ -67,19 +67,19 @@ public class RandomLoot : MonoBehaviour
                 chestpieceDrop = Random.Range(1, 100);
                 if (chestpieceDrop <= 40)
                 {
-                    Instantiate(items.ElementAt(8), itemSpawnLoc.transform.position, Quaternion.Euler(0, 0, 0));
+                    Instantiate(items.ElementAt(8), itemSpawnLoc.transform.position, Quaternion.Euler(-90, 180, 0));
                 }
                 else if (41 <= chestpieceDrop && chestpieceDrop <= 70)
                 {
-                    Instantiate(items.ElementAt(9), itemSpawnLoc.transform.position, Quaternion.Euler(0, 0, 0));
+                    Instantiate(items.ElementAt(9), itemSpawnLoc.transform.position, Quaternion.Euler(-90, 180, 0));
                 }
                 else if (71 <= chestpieceDrop && chestpieceDrop <= 90)
                 {
-                    Instantiate(items.ElementAt(10), itemSpawnLoc.transform.position, Quaternion.Euler(0, 0, 0));
+                    Instantiate(items.ElementAt(10), itemSpawnLoc.transform.position, Quaternion.Euler(-90, 180, 0));
                 }
                 else if (91 <= chestpieceDrop)
                 {
-                    Instantiate(items.ElementAt(11), itemSpawnLoc.transform.position, Quaternion.Euler(0, 0, 0));
+                    Instantiate(items.ElementAt(11), itemSpawnLoc.transform.position, Quaternion.Euler(-90, 180, 0));
                 }
             }
         }

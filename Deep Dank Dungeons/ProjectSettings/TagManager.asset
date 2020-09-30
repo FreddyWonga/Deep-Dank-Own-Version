@@ -12,6 +12,7 @@ TagManager:
   - Character
   - EnemyAttack
   - ItemDrop
+  - Obby
   layers:
   - Default
   - TransparentFX

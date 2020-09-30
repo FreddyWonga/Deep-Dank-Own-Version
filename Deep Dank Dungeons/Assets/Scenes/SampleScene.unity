@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: NaN, g: NaN, b: NaN, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -418,6 +418,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187435819}
   m_CullTransparentMesh: 0
+--- !u!1 &237591746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 237591748}
+  - component: {fileID: 237591747}
+  m_Layer: 0
+  m_Name: BugReporter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &237591747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237591746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c344d44fa4422418e633df89e6d4e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &237591748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237591746}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.943413, y: 78.26407, z: 50.709908}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330387900
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,15 +3145,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1660684450}
     m_Modifications:
-    - target: {fileID: 781576051, guid: 95c02dc9a097be14381e78acde7caddd, type: 3}
+    - target: {fileID: 3729928232628954947, guid: 95c02dc9a097be14381e78acde7caddd,
+        type: 3}
       propertyPath: health
       value: 
       objectReference: {fileID: 529250637}
-    - target: {fileID: 781576051, guid: 95c02dc9a097be14381e78acde7caddd, type: 3}
+    - target: {fileID: 3729928232628954947, guid: 95c02dc9a097be14381e78acde7caddd,
+        type: 3}
       propertyPath: itemPickup
       value: 
       objectReference: {fileID: 1979566867}
-    - target: {fileID: 781576051, guid: 95c02dc9a097be14381e78acde7caddd, type: 3}
+    - target: {fileID: 3729928232628954947, guid: 95c02dc9a097be14381e78acde7caddd,
+        type: 3}
       propertyPath: itemPickupText
       value: 
       objectReference: {fileID: 1979566869}

@@ -7,17 +7,19 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public static int scoreValue = 0;
+    public int currentScore;
     
-    Text score;
+    Text scoreSplash;
 
     void Start()
     {
-        score = GetComponent<Text>();
+        scoreSplash = GetComponent<Text>();
     }
 
 
     void Update()
     {
-        score.text = "" + scoreValue;
+        scoreSplash.text = "" + scoreValue;
+        currentScore = scoreValue;
     }
 }
