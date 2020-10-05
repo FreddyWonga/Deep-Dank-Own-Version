@@ -10,6 +10,7 @@ public class HealingTrade : MonoBehaviour
     public int updatedCost;
     public GameObject itemPickup;
     public Text itemPickupText;
+    public StatTracker StatTracker;
 
     void Start()
     {
@@ -21,16 +22,15 @@ public class HealingTrade : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            health = other.GetComponent<Health>();
             itemPickup.SetActive(true);
             itemTextChange();
             if (Input.GetKeyDown(KeyCode.E) == true)
             {
-                if (health.health != health.MaxHealth)
+                if (GameObject.Find("Stat Tracker").GetComponent<StatTracker>().health != GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth)
                 {
                     if(Score.scoreValue >= currentCost)
                     {
-                        health.health = health.MaxHealth;
+                        GameObject.Find("Stat Tracker").GetComponent<StatTracker>().health = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth;
                         Score.scoreValue -= currentCost;
                         generateCost();
                     }

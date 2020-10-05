@@ -6,6 +6,7 @@ using System.Threading;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 
 
@@ -134,8 +135,15 @@ public class AI_StateManager : MonoBehaviour
             if (collider.CompareTag("Player") == true)
             {
                 print("OUCH");
-                collider.GetComponentInParent<Health>().DoDamage(1);
-
+                StatTracker tracker = GameObject.Find("Stat Tracker").GetComponent<StatTracker>();
+                if (tracker.health >= 0)
+                {
+                    tracker.health -= 1;
+                    if (tracker.health <= 0)
+                    {
+                        SceneManager.LoadScene("DeathScreen");
+                    }
+                }
             }
         }
     }

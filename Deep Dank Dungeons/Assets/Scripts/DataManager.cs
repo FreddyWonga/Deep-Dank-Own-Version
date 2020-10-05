@@ -1,57 +1,64 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.IO;
+﻿//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+//using System.IO;
+//using System.Diagnostics;
 
-public class DataManager : MonoBehaviour
-{
-    public string file = "highscores.txt";
-    public HighscoreTable data;
+//public class DataManager : MonoBehaviour
+//{
+//    public string file = "highscores.txt";
+//    public HighscoreTable data;
 
-    public void Save()
-    {
-        string json = JsonUtility.ToJson(data);
-        WriteToFile(file, json);
-    }
+//    public void Awake()
+//    {
+//        Load();
+//        Debug.Log(data);
+//    }
 
-    public void Load()
-    {
-        data = new HighscoreTable();
-        string json = ReadFromFile(file);
-        JsonUtility.FromJsonOverwrite(json, data);
-    }
+//    public void Save()
+//    {
+//        string json = JsonUtility.ToJson(data);
+//        WriteToFile(file, json);
+//    }
 
-    public void WriteToFile(string fileName, string json)
-    {
-        string path = GetFilePath(fileName);
-        FileStream fileStream = new FileStream(path, FileMode.Create);
+//    public void Load()
+//    {
+//        data = new HighscoreTable();
+//        string json = ReadFromFile(file);
+//        JsonUtility.FromJsonOverwrite(json, data);
+//    }
 
-        using (StreamWriter writer = new StreamWriter(fileStream))
-        {
-            writer.Write(json);
-        }
-    }
+//    public void WriteToFile(string fileName, string json)
+//    {
+//        string path = GetFilePath(fileName);
+//        FileStream fileStream = new FileStream(path, FileMode.Create);
 
-    public string ReadFromFile(string fileName)
-    {
-        string path = GetFilePath(fileName);
-        if (File.Exists(path))
-        {
-            using (StreamReader reader = new StreamReader(path))
-            {
-                string json = reader.ReadToEnd();
-                return json;
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Leaderboard Not Found!");
-        }
-        return "";
-    }
+//        using (StreamWriter writer = new StreamWriter(fileStream))
+//        {
+//            writer.Write(json);
+//        }
+//    }
 
-    public void GetFilePath(string fileName)
-    {
-        return Application.persistentDataPath + "/" + fileName;
-    }
-}
+//    public string ReadFromFile(string fileName)
+//    {
+//        string path = GetFilePath(fileName);
+//        if (File.Exists(path))
+//        {
+//            using (StreamReader reader = new StreamReader(path))
+//            {
+//                string json = reader.ReadToEnd();
+//                return json;
+//            }
+//        }
+//        else
+//        {
+//            Debug.LogWarning("Leaderboard Not Found!");
+//        }
+//        return "";
+//    }
+
+//    public string GetFilePath(string fileName)
+//    {
+//        return Application.persistentDataPath + "/" + fileName;
+//    }
+//}

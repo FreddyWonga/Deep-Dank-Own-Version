@@ -6,11 +6,13 @@ public class Shooter : MonoBehaviour
 {
     public Rigidbody projectile;
     public float speed = 500f;
-    public float mana = 3f;
-    public float max_mana = 3f;
-    public float mana_regen_speed = 1f;
+    public float mana;
+    public float max_mana;
+    public float mana_regen_speed;
     private bool RegenRunning;
     public Animator shoot;
+
+    public StatTracker StatTracker;
 
     private void Awake()
     {
@@ -21,11 +23,18 @@ public class Shooter : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        mana = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana;
+        max_mana = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().max_mana;
+        mana_regen_speed = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana_regen_speed;
+        //mana = StatTracker.mana;
+        //max_mana = StatTracker.max_mana;
+        //mana_regen_speed = StatTracker.mana_regen_speed;
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (mana >= 1f)
             {
-                mana -= 1f;
+                GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana -= 1f;
                 if (RegenRunning == true)
                 {
                     StopCoroutine(ManaRegen());
@@ -58,7 +67,7 @@ public class Shooter : MonoBehaviour
         {
             while (mana < max_mana)
             {
-                mana += 1;
+                GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana += 1;
                 yield return new WaitForSeconds(mana_regen_speed);
             }
             RegenRunning = false;

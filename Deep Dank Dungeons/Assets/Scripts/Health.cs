@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    public int health = 3;
-    public int MaxHealth = 3;
+    public int health;
+    public int MaxHealth;
+
+    public StatTracker StatTracker;
 
     public Image[] Hearts;
     public Sprite fullHearts;
@@ -15,15 +17,19 @@ public class Health : MonoBehaviour
 
     void Update()
     {
+        health = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().health;
+        MaxHealth = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth;
+
+
         if (health > MaxHealth)
         {
             health = MaxHealth;
         }
 
-        if (health <= 0)
-        {
-            SceneManager.LoadScene("DeathScreen");
-        }
+        //if (health <= 0)
+        //{
+        //    SceneManager.LoadScene("DeathScreen");
+        //}
 
         for (int i = 0; i < Hearts.Length; i++)
         {
@@ -50,9 +56,8 @@ public class Health : MonoBehaviour
 
     public void DoDamage(int damageAmount)
     {
-       
-        health -= damageAmount;
-        if (health <= 0);
+
+        GameObject.Find("Stat Tracker").GetComponent<StatTracker>().health -= damageAmount;
     }
 
 }
