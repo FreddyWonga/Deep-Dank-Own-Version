@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public LevelBuilder levelBuilder;
 
     public Animator movement;
-
+    private HashIDs hash;
     public float speed = 12f;
 
     Vector3 velocity;
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         movement = GameObject.FindGameObjectWithTag("Character").GetComponent<Animator>();
+        hash = GameObject.FindGameObjectWithTag("GameManager").GetComponent<HashIDs>();
     }
 
     private void Start()
@@ -40,11 +41,11 @@ public class PlayerController : MonoBehaviour
 
         if(x != 0 || z!= 0)
         {
-            movement.SetBool("move", true);
+            movement.SetBool(hash.walkingBool, true);
         }
         else
         {
-            movement.SetBool("move", false);
+            movement.SetBool(hash.walkingBool, false);
         }
     }
 
