@@ -287,10 +287,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe834d9b0a944fa45b0f94ae59b5415e, type: 2}
+  - {fileID: 2100000, guid: 02097cef75d59314896725da353fa17e, type: 2}
   - {fileID: 8975480819012031255, guid: e661cf38514a39448af7178162c364fa, type: 3}
   - {fileID: -3846018093981099296, guid: e661cf38514a39448af7178162c364fa, type: 3}
-  - {fileID: 2100000, guid: 2e6331d63b8b88c419389ac8006ee328, type: 2}
+  - {fileID: 2100000, guid: 61f4d4707e77ca84bb8c1b1a6f796f29, type: 2}
   - {fileID: -6629797300637803691, guid: e661cf38514a39448af7178162c364fa, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -473,6 +473,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Point Light (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6297182045645757636, guid: 79b003888b6c7334b98f9c9c29b8e88a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.23529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297182045645757636, guid: 79b003888b6c7334b98f9c9c29b8e88a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297182045645757636, guid: 79b003888b6c7334b98f9c9c29b8e88a,
+        type: 3}
+      propertyPath: m_Range
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b003888b6c7334b98f9c9c29b8e88a, type: 3}
 --- !u!4 &913650402682898271 stripped
@@ -547,6 +562,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Point Light (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297182045645757636, guid: 79b003888b6c7334b98f9c9c29b8e88a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.23529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297182045645757636, guid: 79b003888b6c7334b98f9c9c29b8e88a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297182045645757636, guid: 79b003888b6c7334b98f9c9c29b8e88a,
+        type: 3}
+      propertyPath: m_Range
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b003888b6c7334b98f9c9c29b8e88a, type: 3}
@@ -623,6 +653,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Point Light (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6297182045645757636, guid: 79b003888b6c7334b98f9c9c29b8e88a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.23165317
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297182045645757636, guid: 79b003888b6c7334b98f9c9c29b8e88a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297182045645757636, guid: 79b003888b6c7334b98f9c9c29b8e88a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.19215685
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297182045645757636, guid: 79b003888b6c7334b98f9c9c29b8e88a,
+        type: 3}
+      propertyPath: m_Range
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b003888b6c7334b98f9c9c29b8e88a, type: 3}
 --- !u!4 &3149985548371074226 stripped
@@ -697,6 +747,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Point Light (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297182045645757636, guid: 79b003888b6c7334b98f9c9c29b8e88a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.23529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297182045645757636, guid: 79b003888b6c7334b98f9c9c29b8e88a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297182045645757636, guid: 79b003888b6c7334b98f9c9c29b8e88a,
+        type: 3}
+      propertyPath: m_Range
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b003888b6c7334b98f9c9c29b8e88a, type: 3}

@@ -16,6 +16,7 @@ public class SaveFinalScore : MonoBehaviour
     public StatTracker StatTracker;
     public GameObject SaveButton;
     public Highscores highscores;
+    public LinkedList<string> usernames;
 
     public void SaveScoreName()
     {
@@ -24,5 +25,6 @@ public class SaveFinalScore : MonoBehaviour
         theName = inputField.GetComponent<Text>().text;
         highscores = GetComponent<Highscores>();
         Highscores.AddNewHighscore(theName, scores);
+        usernames.AddFirst(theName);
     }
 }

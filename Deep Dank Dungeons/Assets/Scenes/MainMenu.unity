@@ -603,7 +603,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1158293062}
-        m_MethodName: 
+        m_MethodName: LeaderboardScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
-using UnityEditorInternal;
+
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -24,7 +24,7 @@ public class AI_StateManager : MonoBehaviour
     public Chase chaseState;
     public Attack attackState;
     public Animator Anim;
-   public GameObject Sword;
+    public GameObject Sword;
     public bool canAttack = true;
 
     public string state;

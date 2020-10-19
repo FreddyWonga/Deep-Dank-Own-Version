@@ -18,7 +18,7 @@ public class RandomLoot : MonoBehaviour
     public void GetRandomItem()
     {
         randomNumber = Random.Range(1, 101);
-        if (randomNumber >= 10)
+        if (randomNumber >= 85)
         {
             Debug.Log("Dropped Item");
             randomItemType = Random.Range(1, 4);
