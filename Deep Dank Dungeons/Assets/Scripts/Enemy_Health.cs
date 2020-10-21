@@ -26,9 +26,9 @@ public class Enemy_Health : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            GameObject boneExplode = Instantiate(BoneExplode, BoneExplodePosition.transform.position, BoneExplodePosition.transform.rotation);
+            //GameObject boneExplode = Instantiate(BoneExplode, BoneExplodePosition.transform.position, BoneExplodePosition.transform.rotation);
             randomLoot.GetRandomItem();
-            Destroy(boneExplode, 0.75f);
+            //Destroy(boneExplode, 0.75f);
             Destroy(this.gameObject);
             Score.scoreValue += 100;
             
