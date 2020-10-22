@@ -26,11 +26,11 @@ public class HealingTrade : MonoBehaviour
             itemTextChange();
             if (Input.GetKeyDown(KeyCode.E) == true)
             {
-                if (GameObject.Find("Stat Tracker").GetComponent<StatTracker>().health != GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth)
+                if (StatTracker.Instance.health != StatTracker.Instance.MaxHealth)
                 {
                     if(Score.scoreValue >= currentCost)
                     {
-                        GameObject.Find("Stat Tracker").GetComponent<StatTracker>().health = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth;
+                        StatTracker.Instance.health = StatTracker.Instance.MaxHealth;
                         Score.scoreValue -= currentCost;
                         generateCost();
                     }

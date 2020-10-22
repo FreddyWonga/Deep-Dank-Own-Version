@@ -21,7 +21,7 @@ public class SaveFinalScore : MonoBehaviour
     public void SaveScoreName()
     {
         int playerNumber = logReader.fileManager.logContents.Length + 1;
-        int scores = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().currentScore;
+        int scores = StatTracker.Instance.currentScore;
         theName = inputField.GetComponent<Text>().text;
         highscores = GetComponent<Highscores>();
         Highscores.AddNewHighscore(theName, scores);

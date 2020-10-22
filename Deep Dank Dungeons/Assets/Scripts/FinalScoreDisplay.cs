@@ -16,8 +16,8 @@ public class FinalScoreDisplay : MonoBehaviour
     void Awake()
     {
         scoreSplash = GetComponent<Text>();
-        scoreValue = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().scoreValue;
-        currentScore = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().currentScore;
+        scoreValue = StatTracker.Instance.scoreValue;
+        currentScore = StatTracker.Instance.currentScore;
     }
 
 

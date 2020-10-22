@@ -14,10 +14,14 @@ public class StatTracker : MonoBehaviour
     public int scoreValue = 0;
     public int currentScore;
 
-
+    public static StatTracker Instance { get; private set; }
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 }

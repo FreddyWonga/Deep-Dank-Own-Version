@@ -16,8 +16,8 @@ public class Score : MonoBehaviour
     void Start()
     {
         scoreSplash = GetComponent<Text>();
-        scoreValue = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().scoreValue;
-        currentScore = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().currentScore;
+        scoreValue = StatTracker.Instance.scoreValue;
+        currentScore = StatTracker.Instance.currentScore;
     }
 
 
@@ -25,7 +25,7 @@ public class Score : MonoBehaviour
     {
         scoreSplash.text = "" + scoreValue;
         currentScore = scoreValue;
-        GameObject.Find("Stat Tracker").GetComponent<StatTracker>().scoreValue = scoreValue;
-        GameObject.Find("Stat Tracker").GetComponent<StatTracker>().currentScore = currentScore;
+        StatTracker.Instance.scoreValue = scoreValue;
+        StatTracker.Instance.currentScore = currentScore;
     }
 }

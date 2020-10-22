@@ -23,9 +23,9 @@ public class Shooter : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        mana = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana;
-        max_mana = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().max_mana;
-        mana_regen_speed = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana_regen_speed;
+        mana = StatTracker.Instance.mana;
+        max_mana = StatTracker.Instance.max_mana;
+        mana_regen_speed = StatTracker.Instance.mana_regen_speed;
         //mana = StatTracker.mana;
         //max_mana = StatTracker.max_mana;
         //mana_regen_speed = StatTracker.mana_regen_speed;
@@ -34,7 +34,7 @@ public class Shooter : MonoBehaviour
         {
             if (mana >= 1f)
             {
-                GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana -= 1f;
+                StatTracker.Instance.mana -= 1f;
                 if (RegenRunning == true)
                 {
                     StopCoroutine(ManaRegen());
@@ -67,7 +67,7 @@ public class Shooter : MonoBehaviour
         {
             while (mana < max_mana)
             {
-                GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana += 1;
+                StatTracker.Instance.mana += 1;
                 yield return new WaitForSeconds(mana_regen_speed);
             }
             RegenRunning = false;

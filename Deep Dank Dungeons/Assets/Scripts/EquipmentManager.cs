@@ -34,81 +34,106 @@ public class EquipmentManager : MonoBehaviour
     {
         GetComponent<Shooter>();
         GetComponent<Health>();
+        //itemPickupText = GameObject.FindGameObjectWithTag("PickupText").GetComponent<Text>();
     }
 
     public void EquipArmour(Equipment equipment)
     {
-        if(equipment.data.type == ArmourType.helmet && equipment.data.name == "Iron_Helmet")
+        if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Iron_Helmet")
         {
             SetHelmet(equipment);
+            Debug.Log("Before Activated");
             ironHelmet.gameObject.SetActive(true);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth += currentHelmet.data.bonus;
+            Debug.Log("After Activated");
+            StatTracker.Instance.MaxHealth += currentHelmet.data.bonus;
         }
-        else if(equipment.data.type == ArmourType.chest && equipment.data.name == "Iron_Chest")
+        else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Iron_Chest")
         {
             SetChest(equipment);
+            Debug.Log("Before Activated");
             ironChest.gameObject.SetActive(true);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth += currentChest.data.bonus;
+            Debug.Log("After Activated");
+            StatTracker.Instance.MaxHealth += currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Gold_Helmet")
         {
             SetHelmet(equipment);
+            Debug.Log("Before Activated");
             goldenHelmet.gameObject.SetActive(true);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth += currentHelmet.data.bonus;
+            Debug.Log("After Activated");
+            StatTracker.Instance.MaxHealth += currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Gold_Chest")
         {
             SetChest(equipment);
+            Debug.Log("Before Activated");
             goldenChest.gameObject.SetActive(true);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth += currentChest.data.bonus;
+            Debug.Log("After Activated");
+            StatTracker.Instance.MaxHealth += currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Mana_Helmet")
         {
             SetHelmet(equipment);
+            Debug.Log("Before Activated");
             manaHelmet.gameObject.SetActive(true);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().max_mana += currentHelmet.data.bonus;
+            Debug.Log("After Activated");
+            StatTracker.Instance.max_mana += currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Mana_Chest")
         {
             SetChest(equipment);
+            Debug.Log("Before Activated");
             manaChest.gameObject.SetActive(true);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().max_mana += currentChest.data.bonus;
+            Debug.Log("After Activated");
+            StatTracker.Instance.max_mana += currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Magma_Helmet")
         {
             SetHelmet(equipment);
+            Debug.Log("Before Activated");
             magmaHelmet.gameObject.SetActive(true);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().max_mana += currentHelmet.data.bonus;
+            Debug.Log("After Activated");
+            StatTracker.Instance.max_mana += currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Magma_Chest")
         {
             SetChest(equipment);
+            Debug.Log("Before Activated");
             magmaChest.gameObject.SetActive(true);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().max_mana += currentChest.data.bonus;
+            Debug.Log("After Activated");
+            StatTracker.Instance.max_mana += currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Green Staff")
         {
             SetStaff(equipment);
+            Debug.Log("Before Activated");
             greenStaff.gameObject.SetActive(true);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana_regen_speed += currentStaff.data.bonus;
+            Debug.Log("After Activated");
+            StatTracker.Instance.mana_regen_speed += currentStaff.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Blue Staff")
         {
             SetStaff(equipment);
+            Debug.Log("Before Activated");
             blueStaff.gameObject.SetActive(true);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana_regen_speed += currentStaff.data.bonus;
+            Debug.Log("After Activated");
+            StatTracker.Instance.mana_regen_speed += currentStaff.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Yellow Staff")
         {
             SetStaff(equipment);
+            Debug.Log("Before Activated");
             yellowStaff.gameObject.SetActive(true);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana_regen_speed += currentStaff.data.bonus;
+            Debug.Log("After Activated");
+            StatTracker.Instance.mana_regen_speed += currentStaff.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Purple Staff")
         {
             SetStaff(equipment);
+            Debug.Log("Before Activated");
             purpleStaff.gameObject.SetActive(true);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana_regen_speed += currentStaff.data.bonus;
+            Debug.Log("After Activated");
+            StatTracker.Instance.mana_regen_speed += currentStaff.data.bonus;
         }
     }
     public void UnequipArmour(Equipment equipment)
@@ -116,80 +141,80 @@ public class EquipmentManager : MonoBehaviour
         if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Iron_Helmet")
         {
             ironHelmet.gameObject.SetActive(false);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth -= currentHelmet.data.bonus;
+            StatTracker.Instance.MaxHealth -= currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Iron_Chest")
         {
             ironChest.gameObject.SetActive(false);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth -= currentChest.data.bonus;
+            StatTracker.Instance.MaxHealth -= currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Gold_Helmet")
         {
             goldenHelmet.gameObject.SetActive(false);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth -= currentHelmet.data.bonus;
+            StatTracker.Instance.MaxHealth -= currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Gold_Chest")
         {
             goldenChest.gameObject.SetActive(false);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth -= currentChest.data.bonus;
+            StatTracker.Instance.MaxHealth -= currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Mana_Helmet")
         {
             manaHelmet.gameObject.SetActive(false);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().max_mana -= currentHelmet.data.bonus;
+            StatTracker.Instance.max_mana -= currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Mana_Chest")
         {
             manaChest.gameObject.SetActive(false);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().max_mana -= currentChest.data.bonus;
+            StatTracker.Instance.max_mana -= currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Magma_Helmet")
         {
             magmaHelmet.gameObject.SetActive(false);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().max_mana -= currentHelmet.data.bonus;
+            StatTracker.Instance.max_mana -= currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Magma_Chest")
         {
             magmaChest.gameObject.SetActive(false);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().max_mana -= currentChest.data.bonus;
+            StatTracker.Instance.max_mana -= currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Green Staff")
         {
             greenStaff.gameObject.SetActive(false);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana_regen_speed -= currentStaff.data.bonus;
+            StatTracker.Instance.mana_regen_speed -= currentStaff.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Blue Staff")
         {
             blueStaff.gameObject.SetActive(false);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana_regen_speed -= currentStaff.data.bonus;
+            StatTracker.Instance.mana_regen_speed -= currentStaff.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Yellow Staff")
         {
             yellowStaff.gameObject.SetActive(false);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana_regen_speed -= currentStaff.data.bonus;
+            StatTracker.Instance.mana_regen_speed -= currentStaff.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Purple Staff")
         {
             purpleStaff.gameObject.SetActive(false);
-            GameObject.Find("Stat Tracker").GetComponent<StatTracker>().mana_regen_speed -= currentStaff.data.bonus;
+            StatTracker.Instance.mana_regen_speed -= currentStaff.data.bonus;
         }
     }
     private void SetHelmet(Equipment helmet)
     {
-        if(currentHelmet != null)
+        if (currentHelmet != null)
         {
             SpawnArmour(currentHelmet);
             UnequipArmour(currentHelmet);
         }
         currentHelmet = helmet;
         helmet.gameObject.SetActive(false);
-        
+
     }
 
     private void SetChest(Equipment chest)
     {
         if (currentChest != null)
-        { 
+        {
             SpawnArmour(currentChest);
             UnequipArmour(currentChest);
         }
@@ -207,38 +232,38 @@ public class EquipmentManager : MonoBehaviour
         staff.gameObject.SetActive(false);
     }
 
-    private void SpawnArmour(Equipment armour) 
+    private void SpawnArmour(Equipment armour)
     {
         armour.gameObject.SetActive(true);
         armour.transform.position = itemDropLocation.transform.position;
         armour.transform.localRotation = itemDropLocation.transform.rotation;
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.tag == "ItemDrop")
-        {
-            itemPickup.SetActive(true);
-            itemTextChange(other.gameObject.name);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            this.transform.parent = PlayerData.transform;
-            itemPickup.SetActive(false);
-        }
-    }
+//    private void OnTriggerStay(Collider other)
+//    {
+//        if(other.tag == "ItemDrop")
+//        {
+//            itemPickup.SetActive(true);
+//            itemTextChange(other.gameObject.name);
+//        }
+//        if (Input.GetKeyDown(KeyCode.E))
+//        {
+//            this.transform.parent = PlayerData.transform;
+//            itemPickup.SetActive(false);
+//        }
+//    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.tag == "ItemDrop")
-        {
-            itemPickup.SetActive(false);
-        }
-    }
+//    private void OnTriggerExit(Collider other)
+//    {
+//        if(other.tag == "ItemDrop")
+//        {
+//            itemPickup.SetActive(false);
+//        }
+//    }
 
-    public void itemTextChange(string itemName)
-    {
-        itemPickupText.text = "E to equip";
-    }
+//    public void itemTextChange(string itemName)
+//    {
+//        itemPickupText.text = "E to equip";
+//    }
 
 }

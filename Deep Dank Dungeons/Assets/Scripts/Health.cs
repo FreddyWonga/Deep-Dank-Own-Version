@@ -15,12 +15,23 @@ public class Health : MonoBehaviour
     public Sprite fullHearts;
     public Sprite emptyHeart;
 
+    private void Start()
+    {
+        health = StatTracker.Instance.health;
+        MaxHealth = StatTracker.Instance.MaxHealth;
+
+        for (int i = 0; i < Hearts.Length; i++)
+        {
+            GameObject healthImage = GameObject.Find("Health (" + (i + 1) + ")");
+
+            if (healthImage != null)
+            {
+                Hearts[i] = healthImage.GetComponent<Image>();
+            }
+        }
+    }
     void Update()
     {
-        health = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().health;
-        MaxHealth = GameObject.Find("Stat Tracker").GetComponent<StatTracker>().MaxHealth;
-
-
         if (health > MaxHealth)
         {
             health = MaxHealth;
@@ -57,7 +68,7 @@ public class Health : MonoBehaviour
     public void DoDamage(int damageAmount)
     {
 
-        GameObject.Find("Stat Tracker").GetComponent<StatTracker>().health -= damageAmount;
+        StatTracker.Instance.health -= damageAmount;
     }
 
 }

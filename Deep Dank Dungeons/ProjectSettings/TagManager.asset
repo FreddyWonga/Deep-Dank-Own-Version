@@ -14,6 +14,8 @@ TagManager:
   - ItemDrop
   - Obby
   - GameManager
+  - PlayerData
+  - PickupText
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - 
   - Room
   - Ground
-  - 
+  - AI
   - 
   - 
   - 

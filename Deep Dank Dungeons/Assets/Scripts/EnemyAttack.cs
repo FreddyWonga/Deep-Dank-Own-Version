@@ -16,7 +16,7 @@ public class EnemyAttack : MonoBehaviour
     public TextMesh sceneText;
     [Header("Behaviour Definitions")]
     public AIState initialState = AIState.wander;
-    public Wander wanderState;
+    public Idle wanderState;
     public Chase chaseState;
     public Attack attackState;
     public Animator Anim;

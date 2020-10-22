@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class Equipment : MonoBehaviour
 {
+    public PlayerData playerData;
+
+    private void Start()
+    {
+        playerData = FindObjectOfType<PlayerData>();
+    }
     public ArmourData data;
     private void OnTriggerStay(Collider other)
     {
@@ -13,6 +19,7 @@ public class Equipment : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) == true)
             {
                 other.GetComponent<EquipmentManager>().EquipArmour(this);
+                this.gameObject.transform.parent = playerData.gameObject.transform;
             }
         }
         //else

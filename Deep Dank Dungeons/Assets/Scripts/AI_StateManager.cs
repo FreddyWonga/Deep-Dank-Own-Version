@@ -20,7 +20,7 @@ public class AI_StateManager : MonoBehaviour
     public TextMesh sceneText;
     [Header("Behaviour Definitions")]
     public AIState initialState = AIState.wander;
-    public Wander wanderState;
+    public Idle wanderState;
     public Chase chaseState;
     public Attack attackState;
     public Animator Anim;
@@ -29,6 +29,8 @@ public class AI_StateManager : MonoBehaviour
 
     public string state;
     public string targetName;
+
+    public TextMesh debugText;
 
     private BehaviourState currentState;
 
@@ -57,7 +59,7 @@ public class AI_StateManager : MonoBehaviour
     {
         if (initialState == AIState.wander)
         {
-            SetState(new Wander(this) { ignoreState = wanderState.ignoreState, boundBox = wanderState.boundBox });
+            SetState(new Idle(this) { ignoreState = wanderState.ignoreState});
         }
     }
 
@@ -119,38 +121,12 @@ public class AI_StateManager : MonoBehaviour
                 sceneText.text = (currentState.GetType().ToString());
             }
             currentState.Initalize();
+            debugText.text = currentState.ToString().ToUpper();
         }
     }
     public void ClearTarget()
     {
         Target = null;
-    }
-
-    public void EnableSword()
-    {
-        Collider[] collisions = Physics.OverlapBox((Vector3)transform.position, new Vector3(4, 5, 4));
-        foreach (Collider collider in collisions)
-        {
-            Debug.Log(collider.tag);
-            if (collider.CompareTag("Player") == true)
-            {
-                print("OUCH");
-                StatTracker tracker = GameObject.Find("Stat Tracker").GetComponent<StatTracker>();
-                if (tracker.health >= 0)
-                {
-                    tracker.health -= 1;
-                    if (tracker.health <= 0)
-                    {
-                        SceneManager.LoadScene("DeathScreen");
-                    }
-                }
-            }
-        }
-    }
-
-    public void DisableSword()
-    {
-        canAttack = true;
     }
 }
 
@@ -174,14 +150,10 @@ public abstract class BehaviourState
     public virtual void DrawGizmos() { }
 }
 [System.Serializable]
-public class Wander : BehaviourState
+public class Idle : BehaviourState
 {
-    public Bounds boundBox;
 
-    private Vector3? targetPos;
-    private float distance;
-
-    public Wander(AI_StateManager sm) : base(sm)
+    public Idle(AI_StateManager sm) : base(sm)
     {
 
     }
@@ -194,15 +166,7 @@ public class Wander : BehaviourState
 
     public override void Update()
     {
-        if (targetPos != null)
-        {
-            // If AI has a target then switch states
-            //distance = Vector3.Distance(stateManager.transform.position, (Vector3)targetPos);
-            //if (distance <= stateManager.Agent.stoppingDistance)
-            //{
-            //    FindNewWanderPoint();
-            //}
-        }
+
     }
 
     public override void Exit()
@@ -212,35 +176,8 @@ public class Wander : BehaviourState
 
     public override void DrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(boundBox.center, boundBox.size);
-        Gizmos.color = Color.red;
-        if (targetPos != null)
-        {
-            Gizmos.DrawSphere((Vector3)targetPos, 0.5f);
 
-        }
-        targetPos = stateManager.transform.position;
-        Gizmos.DrawCube((Vector3)stateManager.transform.position, new Vector3(4, 5, 4));
     }
-
-    //Vector3 GetRandomPointInBounds()
-    //{
-        //float randomX = Random.Range(-boundBox.extents.x, boundBox.extents.x);
-        //float randomZ = Random.Range(-boundBox.extents.z, boundBox.extents.z);
-        //Vector3 randomVector = new Vector3(randomX, stateManager.transform.position.y + boundBox.center.y, randomZ);
-        //if(boundBox.Contains(randomVector) == false)
-        //{
-        //    randomVector = GetRandomPointInBounds();
-        //}
-        //return randomVector;
-    //}
-
-    //void FindNewWanderPoint()
-    //{
-    //    targetPos = GetRandomPointInBounds();
-    //    stateManager.Agent.SetDestination((Vector3)targetPos);
-    //}
 }
 
 [System.Serializable]
@@ -248,6 +185,7 @@ public class Chase : BehaviourState
 {
     public float chaseSpeed = 5f;
     public Animator movement;
+
     private float distance;
 
     public Chase(AI_StateManager sm) : base(sm)
@@ -272,7 +210,7 @@ public class Chase : BehaviourState
         {
             movement.SetBool("moving", true);
             distance = Vector3.Distance(stateManager.transform.position, stateManager.Target.position);
-            if (distance <= stateManager.Agent.stoppingDistance)
+            if (distance <= stateManager.attackState.range)
             {
                 stateManager.SetState(new Attack(stateManager, this));
                 movement.SetBool("moving", false);
@@ -282,7 +220,7 @@ public class Chase : BehaviourState
                 if (distance > stateManager.viewRadius)
                 {
                     stateManager.ClearTarget();
-                    stateManager.SetState(previousState);
+                    stateManager.SetState(new Idle(stateManager));
                 }
                 else
                 {
@@ -295,7 +233,7 @@ public class Chase : BehaviourState
         {
             if (previousState != null)
             {
-                stateManager.SetState(previousState);
+                stateManager.SetState(new Idle(stateManager));
                 movement.SetBool("moving", false);
             }
         }
@@ -305,17 +243,20 @@ public class Chase : BehaviourState
 [System.Serializable]
 public class Attack : BehaviourState
 {
-    public Bounds boundBox;
+    public float range = 3;
+    public LayerMask ignoreMask;
 
-    private Vector3? targetPos;
     private float distance;
     public Animator stab;
     public override void Initalize()
     {
        stab= stateManager.GetComponent<Animator>();
-        targetPos = stateManager.transform.position;
-        
+        if(stateManager.Target == null) 
+        {
+            stateManager.SetState(new Idle(stateManager));
+        }
     }
+
     public Attack(AI_StateManager sm, BehaviourState prevState) : base(sm)
     {
         previousState = prevState;
@@ -325,28 +266,37 @@ public class Attack : BehaviourState
     {
         // Gizmos.color = Color.red;
 
-
-
-        Collider[] collisions = Physics.OverlapBox((Vector3)targetPos, new Vector3(4, 5, 4));
-        foreach (Collider collider in collisions)
+        if(stateManager.Target != null) 
         {
-            Debug.Log(collider.tag);
-            if (collider.CompareTag("Player") == true)
+            distance = Vector3.Distance(stateManager.transform.position, stateManager.Target.position);
+            Debug.Log($"Distance: {distance} Range: {range}");
+            if(distance <= range) 
             {
-                if (stateManager.canAttack)
+                if(Physics.Raycast(stateManager.transform.position, stateManager.transform.forward, out RaycastHit hit, range, ~ignoreMask))
                 {
-                    stab.SetTrigger("Attack");
-                   
-                    stateManager.SetState(previousState);
-                    stateManager.canAttack = false;
-
-                    //collider.GetComponent<playerscript>().damagevoid(1`00090000);
-
+                    Debug.Log($"Hit: {hit.transform.name}");
+                    Debug.DrawLine(stateManager.transform.position, hit.transform.position, Color.green, 1);
+                    if(hit.collider.tag == "Player") 
+                    {
+                        //call damage function on player
+                        hit.collider.GetComponent<Health>().DoDamage(1);
+                    }
                 }
-
-
+                else 
+                {
+                    Debug.DrawLine(stateManager.transform.position, hit.transform.position, Color.red, 1);
+                }
             }
-           
+            else 
+            {
+                Debug.Log("Not within range");
+                stateManager.SetState(new Chase(stateManager));
+            }
+        }
+        else 
+        {
+            Debug.Log("Target lost");
+            stateManager.SetState(new Chase(stateManager));
         }
     }
 

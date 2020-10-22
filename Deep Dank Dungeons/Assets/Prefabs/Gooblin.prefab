@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2073478384316509061}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3210001558827171723}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ Transform:
   m_Father: {fileID: 7993393487816457807}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &623317732703643535
+--- !u!1 &635915147694836741
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,42 +69,90 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4259322233150450781}
-  - component: {fileID: 4104329381799782840}
-  m_Layer: 0
-  m_Name: AttackBox
-  m_TagString: EnemyAttack
+  - component: {fileID: 7183975224004358437}
+  - component: {fileID: 8391671200500468433}
+  - component: {fileID: 480229446048014922}
+  m_Layer: 10
+  m_Name: New Text
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4259322233150450781
+--- !u!4 &7183975224004358437
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623317732703643535}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.71, z: 3.67}
+  m_GameObject: {fileID: 635915147694836741}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 8.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6581042914854845949}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4104329381799782840
-BoxCollider:
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!23 &8391671200500468433
+MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623317732703643535}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_GameObject: {fileID: 635915147694836741}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 10, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!102 &480229446048014922
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635915147694836741}
+  m_Text: Hello World
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
 --- !u!1 &843594064257874502
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5592786285226635745}
   - component: {fileID: 3049939594372052472}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gooblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5603619291685314243}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,9 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2238258147267397246}
-  - component: {fileID: 8180190780882414340}
-  - component: {fileID: 6204256645389521639}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: gooblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,40 +302,8 @@ Transform:
   - {fileID: 2567589772971167216}
   - {fileID: 5592786285226635745}
   m_Father: {fileID: 6581042914854845949}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &8180190780882414340
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2978209994570839149}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d7f44bf151491ac47a0a61ba171a2940, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3c9b574678f3cd14cba73326b0dc3b0b, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &6204256645389521639
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2978209994570839149}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.2, y: 2.61, z: 4.01}
-  m_Center: {x: 0, y: 0.76, z: -0.79}
 --- !u!1 &4274450828658681183
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2776115356609297691}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ItemDropLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2589549815137067322}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TailEnd_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022067833760660642}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TailMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7993393487816457807}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2567589772971167216}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7941656542730128272}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TailBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +504,7 @@ GameObject:
   - component: {fileID: 6878627901299807946}
   - component: {fileID: 1405751432532935430}
   - component: {fileID: -5501140659559691778}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gooblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -509,8 +523,8 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_Children:
   - {fileID: 2776115356609297691}
-  - {fileID: 4259322233150450781}
   - {fileID: 2238258147267397246}
+  - {fileID: 7183975224004358437}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -531,24 +545,23 @@ MonoBehaviour:
   initialState: 1
   wanderState:
     ignoreState: 0
-    boundBox:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
   chaseState:
     ignoreState: 0
     chaseSpeed: 0
     movement: {fileID: 0}
   attackState:
     ignoreState: 0
-    boundBox:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
+    range: 3
+    ignoreMask:
+      serializedVersion: 2
+      m_Bits: 1024
     stab: {fileID: 0}
   Anim: {fileID: 0}
   Sword: {fileID: 0}
   canAttack: 1
   state: 
   targetName: 
+  debugText: {fileID: 480229446048014922}
 --- !u!195 &4280724915439523632
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -563,7 +576,7 @@ NavMeshAgent:
   m_Acceleration: 12000
   avoidancePriority: 50
   m_AngularSpeed: 12000
-  m_StoppingDistance: 2.5
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -663,7 +676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2270450159737030462}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TailEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
