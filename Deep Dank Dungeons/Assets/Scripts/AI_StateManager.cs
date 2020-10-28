@@ -269,7 +269,7 @@ public class Attack : BehaviourState
         if(stateManager.Target != null) 
         {
             distance = Vector3.Distance(stateManager.transform.position, stateManager.Target.position);
-            Debug.Log($"Distance: {distance} Range: {range}");
+            //Debug.Log($"Distance: {distance} Range: {range}");
             if(distance <= range) 
             {
                 if(Physics.Raycast(stateManager.transform.position, stateManager.transform.forward, out RaycastHit hit, range, ~ignoreMask))
@@ -282,7 +282,7 @@ public class Attack : BehaviourState
                         hit.collider.GetComponent<Health>().DoDamage(1);
                     }
                 }
-                else 
+                else
                 {
                     Debug.DrawLine(stateManager.transform.position, hit.transform.position, Color.red, 1);
                 }

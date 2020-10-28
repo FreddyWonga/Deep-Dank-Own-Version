@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Destroy_Projectile.cs" />
     <Compile Include="Assets\Scripts\DisplayHighscores.cs" />
     <Compile Include="Assets\Scripts\Doorway.cs" />
+    <Compile Include="Assets\Scripts\DragDrop.cs" />
     <Compile Include="Assets\Scripts\EndRoom.cs" />
     <Compile Include="Assets\Scripts\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
@@ -86,8 +87,10 @@
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\Highscores.cs" />
     <Compile Include="Assets\Scripts\HighscoreTable.cs" />
+    <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
+    <Compile Include="Assets\Scripts\ItemSlot.cs" />
     <Compile Include="Assets\Scripts\Leaderboard.cs" />
     <Compile Include="Assets\Scripts\LevelBuilder.cs" />
     <Compile Include="Assets\Scripts\LogReader.cs" />
@@ -103,7 +106,6 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerData.cs" />
     <Compile Include="Assets\Scripts\PortalFinish.cs" />
-    <Compile Include="Assets\Scripts\PortalRestart.cs" />
     <Compile Include="Assets\Scripts\Projectile\SpawnProjectiles.cs" />
     <Compile Include="Assets\Scripts\ProjectileDamage.cs" />
     <Compile Include="Assets\Scripts\ProjectileDamage1.cs" />

@@ -5,11 +5,44 @@ using UnityEngine.SceneManagement;
 
 public class PortalFinish : MonoBehaviour
 {
-    public void OnTriggerEnter(Collider other)
+    public static bool PortalActive;
+
+    private void Start()
     {
-        if (other.tag == "Player")
+        PortalActive = false;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Player")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            PortalActive = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            PortalActive = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (ItemSlot.RunePlaced == true)
+        {
+            if(SceneManager.GetActiveScene().buildIndex != 4)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                ItemSlot.RunePlaced = false;
+            }
+            else
+            {
+                SceneManager.LoadScene("Sewer");
+                ItemSlot.RunePlaced = false;
+            }
+            
         }
     }
 }
