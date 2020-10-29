@@ -63,6 +63,26 @@ public class AI_StateManager : MonoBehaviour
         }
     }
 
+    public bool ReadyAttack;
+
+    public void DoAttack()
+    {
+        StartCoroutine(AttackCheck());
+    }
+
+    IEnumerator AttackCheck()
+    {
+        Anim.SetTrigger("Attack");
+        yield return new WaitForSeconds(1);
+        if (attackState.distance < attackState.range)
+        {
+            Debug.Log("Damage Done");
+            StatTracker.Instance.health = -1;
+        }
+        SetState(new Chase(this));
+        ReadyAttack = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -245,8 +265,8 @@ public class Attack : BehaviourState
 {
     public float range = 3;
     public LayerMask ignoreMask;
-
-    private float distance;
+    public Animator Anim;
+    public float distance;
     public Animator stab;
     public override void Initalize()
     {
@@ -268,23 +288,14 @@ public class Attack : BehaviourState
 
         if(stateManager.Target != null) 
         {
-            distance = Vector3.Distance(stateManager.transform.position, stateManager.Target.position);
+            
             //Debug.Log($"Distance: {distance} Range: {range}");
             if(distance <= range) 
             {
-                if(Physics.Raycast(stateManager.transform.position, stateManager.transform.forward, out RaycastHit hit, range, ~ignoreMask))
+                if(stateManager.ReadyAttack == true)
                 {
-                    Debug.Log($"Hit: {hit.transform.name}");
-                    Debug.DrawLine(stateManager.transform.position, hit.transform.position, Color.green, 1);
-                    if(hit.collider.tag == "Player") 
-                    {
-                        //call damage function on player
-                        hit.collider.GetComponent<Health>().DoDamage(1);
-                    }
-                }
-                else
-                {
-                    Debug.DrawLine(stateManager.transform.position, hit.transform.position, Color.red, 1);
+                    stateManager.ReadyAttack = false;
+                    stateManager.DoAttack();
                 }
             }
             else 
@@ -299,8 +310,6 @@ public class Attack : BehaviourState
             stateManager.SetState(new Chase(stateManager));
         }
     }
-
-   
 
     public override void Exit()
     {

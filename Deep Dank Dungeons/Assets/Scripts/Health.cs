@@ -17,9 +17,6 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        health = StatTracker.Instance.health;
-        MaxHealth = StatTracker.Instance.MaxHealth;
-
         for (int i = 0; i < Hearts.Length; i++)
         {
             GameObject healthImage = GameObject.Find("Health (" + (i + 1) + ")");
@@ -32,6 +29,9 @@ public class Health : MonoBehaviour
     }
     void Update()
     {
+        health = StatTracker.Instance.health;
+        MaxHealth = StatTracker.Instance.MaxHealth;
+
         if (health > MaxHealth)
         {
             health = MaxHealth;
