@@ -34,6 +34,7 @@ public class PortalFinish : MonoBehaviour
         {
             if(SceneManager.GetActiveScene().buildIndex != 4)
             {
+                StatTracker.Instance.mana = StatTracker.Instance.max_mana;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 ItemSlot.RunePlaced = false;
             }

@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public LevelBuilder levelBuilder;
 
+    public static PlayerController instance;
+
     public Animator movement;
     private HashIDs hash;
     public float speed = 12f;
@@ -18,6 +20,10 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        if(instance == null) 
+        {
+            instance = this;
+        }
         movement = GameObject.FindGameObjectWithTag("Character").GetComponent<Animator>();
         hash = GameObject.FindGameObjectWithTag("GameManager").GetComponent<HashIDs>();
     }

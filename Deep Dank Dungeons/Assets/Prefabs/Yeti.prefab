@@ -470,7 +470,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1382981594858784170}
   - component: {fileID: 9059929286741502160}
-  - component: {fileID: 9040448474098981176}
   m_Layer: 0
   m_Name: Yeti (1)
   m_TagString: Untagged
@@ -516,20 +515,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &9040448474098981176
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2695984601492420537}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 5.96
-  m_Height: 15
-  m_Direction: 1
-  m_Center: {x: 0, y: 6.5, z: 0}
 --- !u!1 &2856032651769925637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,24 +1752,28 @@ MonoBehaviour:
   initialState: 1
   wanderState:
     ignoreState: 0
-    boundBox:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
   chaseState:
     ignoreState: 0
     chaseSpeed: 0
-    movement: {fileID: 0}
+    movement: {fileID: 1405751432532935430}
+    distance: 0
+    enemy: {fileID: 7858735656276643822}
   attackState:
     ignoreState: 0
-    boundBox:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
-    stab: {fileID: 0}
-  Anim: {fileID: 0}
-  Sword: {fileID: 0}
+    range: 3
+    ignoreMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    Anim: {fileID: 1405751432532935430}
+    stab: {fileID: 1405751432532935430}
+  Anim: {fileID: 1405751432532935430}
+  Sword: {fileID: 7858735656276643822}
   canAttack: 1
   state: 
   targetName: 
+  waitStartTime: 2
+  waitCooldown: 1
+  ReadyAttack: 1
 --- !u!195 &4280724915439523632
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1848,8 +1837,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7858735656276643822}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a9b7620f1fa67a4090fc33e795b2c6f, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 4d082eef71aea464c9f3d8d8ae6240cb, type: 3}
+  m_Controller: {fileID: 9100000, guid: b95bc478fe232b14398f24197aef78aa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

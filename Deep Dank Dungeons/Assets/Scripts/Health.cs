@@ -37,10 +37,11 @@ public class Health : MonoBehaviour
             health = MaxHealth;
         }
 
-        //if (health <= 0)
-        //{
-        //    SceneManager.LoadScene("DeathScreen");
-        //}
+        if (health <= 0)
+        {
+            StatTracker.Instance.health = StatTracker.Instance.MaxHealth;
+            SceneManager.LoadScene("DeathScreen");
+        }
 
         for (int i = 0; i < Hearts.Length; i++)
         {

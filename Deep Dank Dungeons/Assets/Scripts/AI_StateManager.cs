@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
-
+using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -29,10 +29,10 @@ public class AI_StateManager : MonoBehaviour
 
     public string state;
     public string targetName;
-
-    public TextMesh debugText;
-
     private BehaviourState currentState;
+
+    public float waitStartTime;
+    public float waitCooldown;
 
 
 
@@ -49,37 +49,40 @@ public class AI_StateManager : MonoBehaviour
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
-        Anim = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Animator>();
+        Anim = GetComponent<Animator>();
         canAttack = true;
-
     }
 
     // Start is called before the first frame update
     private void Start()
     {
+        attackState.Prepare(this);
         if (initialState == AIState.wander)
         {
             SetState(new Idle(this) { ignoreState = wanderState.ignoreState});
         }
     }
 
-    public bool ReadyAttack;
+    public bool ReadyAttack = true;
 
     public void DoAttack()
     {
+        Anim.SetTrigger("Attack");
         StartCoroutine(AttackCheck());
     }
 
     IEnumerator AttackCheck()
     {
-        Anim.SetTrigger("Attack");
-        yield return new WaitForSeconds(1);
-        if (attackState.distance < attackState.range)
+        Debug.Log("AttackCheck Started");
+        yield return new WaitForSeconds(waitStartTime);
+        if (attackState.Distance < attackState.range)
         {
-            Debug.Log("Damage Done");
-            StatTracker.Instance.health = -1;
+            Debug.Log(attackState.Distance);
+            Debug.Log(attackState.range);
+            StatTracker.Instance.health = (StatTracker.Instance.health-1);
         }
         SetState(new Chase(this));
+        yield return new WaitForSeconds(waitCooldown);
         ReadyAttack = true;
     }
 
@@ -141,7 +144,6 @@ public class AI_StateManager : MonoBehaviour
                 sceneText.text = (currentState.GetType().ToString());
             }
             currentState.Initalize();
-            debugText.text = currentState.ToString().ToUpper();
         }
     }
     public void ClearTarget()
@@ -159,6 +161,11 @@ public abstract class BehaviourState
     protected BehaviourState previousState;
 
     public BehaviourState(AI_StateManager sm)
+    {
+        stateManager = sm;
+    }
+
+    public virtual void Prepare(AI_StateManager sm) 
     {
         stateManager = sm;
     }
@@ -206,7 +213,10 @@ public class Chase : BehaviourState
     public float chaseSpeed = 5f;
     public Animator movement;
 
-    private float distance;
+    public float distance;
+
+
+    public GameObject enemy;
 
     public Chase(AI_StateManager sm) : base(sm)
     {
@@ -226,13 +236,14 @@ public class Chase : BehaviourState
 
     public override void Update()
     {
+
         if (stateManager.Target != null)
         {
             movement.SetBool("moving", true);
-            distance = Vector3.Distance(stateManager.transform.position, stateManager.Target.position);
+            distance = Vector3.Distance(stateManager.transform.position, PlayerController.instance.transform.position);
             if (distance <= stateManager.attackState.range)
             {
-                stateManager.SetState(new Attack(stateManager, this));
+                stateManager.SetState(stateManager.attackState);
                 movement.SetBool("moving", false);
             }
             else
@@ -266,11 +277,21 @@ public class Attack : BehaviourState
     public float range = 3;
     public LayerMask ignoreMask;
     public Animator Anim;
-    public float distance;
     public Animator stab;
+
+    public float Distance 
+    {
+        get
+        {
+            Debug.Log(stateManager.name);
+            Debug.Log(PlayerController.instance.name);
+            return Vector3.Distance(stateManager.transform.position, PlayerController.instance.transform.position);
+        }
+    }
+
     public override void Initalize()
     {
-       stab= stateManager.GetComponent<Animator>();
+       stab = stateManager.GetComponent<Animator>();
         if(stateManager.Target == null) 
         {
             stateManager.SetState(new Idle(stateManager));
@@ -285,12 +306,11 @@ public class Attack : BehaviourState
     public override void Update()
     {
         // Gizmos.color = Color.red;
-
-        if(stateManager.Target != null) 
+        if (stateManager.Target != null) 
         {
             
             //Debug.Log($"Distance: {distance} Range: {range}");
-            if(distance <= range) 
+            if(Distance <= range) 
             {
                 if(stateManager.ReadyAttack == true)
                 {
