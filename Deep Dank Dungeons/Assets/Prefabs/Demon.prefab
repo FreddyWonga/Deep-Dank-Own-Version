@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 6878627901299807946}
   - component: {fileID: 1405751432532935430}
   - component: {fileID: -5501140659559691778}
+  - component: {fileID: 4596775887122514913}
   m_Layer: 0
   m_Name: Demon
   m_TagString: Enemy
@@ -243,6 +244,20 @@ MonoBehaviour:
   wandDrop: 0
   helmetDrop: 0
   chestpieceDrop: 0
+--- !u!136 &4596775887122514913
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7858735656276643822}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2.81
+  m_Height: 13.33
+  m_Direction: 1
+  m_Center: {x: 0, y: 4.8, z: 0}
 --- !u!1001 &8084860324330764345
 PrefabInstance:
   m_ObjectHideFlags: 0

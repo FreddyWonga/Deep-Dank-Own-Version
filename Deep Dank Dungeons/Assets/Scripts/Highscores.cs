@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.InteropServices;
 
 public class Highscores : MonoBehaviour
 {
+    [DllImport("CPlusUtility")]
+    public static extern int BinarySearch(int[] arr, int l, int r, int num);
+    [DllImport("CPlusUtility")]
+    public static extern void BubbleSort(int[] arr, int n);
+
     const string privateCode = "6XExyQIZ6E-roaQTBkfJXgdlhGCCt6d0yWC9cyXi0Z6g";
     const string publicCode = "5f827891eb371809c4771a8e";
     const string webURL = "http://dreamlo.com/lb/";
-
+    
     public Highscore[] highscoresList;
     static Highscores instance;
     DisplayHighscores highscoresDisplay;
@@ -52,6 +58,9 @@ public class Highscores : MonoBehaviour
         if (string.IsNullOrEmpty(WWW.error))
         {
             FormatHighscores(WWW.text);
+
+
+
             highscoresDisplay.OnHighscoresDownloaded(highscoresList);
         }
         else
@@ -72,8 +81,20 @@ public class Highscores : MonoBehaviour
 			highscoresList[i] = new Highscore(username,score);
 			print (highscoresList[i].username + ": " + highscoresList[i].score);
 		}
-	}
-
+        int t;
+        for (int p = 0; p <= highscoresList.Length - 2; p++)
+        {
+            for (int i = 0; i <= highscoresList.Length - 2; i++)
+            {
+                if (highscoresList[i].score > highscoresList[i + 1].score)
+                {
+                    t = highscoresList[i + 1].score;
+                    highscoresList[i + 1].score = highscoresList[i].score;
+                    highscoresList[i].score = t;
+                }
+            }
+        }
+    }
 }
 
 public struct Highscore {

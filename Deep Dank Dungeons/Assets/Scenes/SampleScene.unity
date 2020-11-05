@@ -3799,6 +3799,11 @@ PrefabInstance:
       propertyPath: m_Range
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 4754364187326978858, guid: 56b6ea4e49b7a484981cd8d85a5705c5,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6761613346046126189, guid: 56b6ea4e49b7a484981cd8d85a5705c5,
         type: 3}
       propertyPath: m_Color.r

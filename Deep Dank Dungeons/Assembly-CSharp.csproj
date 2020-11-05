@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\EquipPrompt.cs" />
     <Compile Include="Assets\Scripts\FinalScoreDisplay.cs" />
     <Compile Include="Assets\Scripts\HashIDs.cs" />
+    <Compile Include="Assets\Scripts\HealCostGenerator.cs" />
     <Compile Include="Assets\Scripts\HealingTrade.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\Highscores.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerData.cs" />
     <Compile Include="Assets\Scripts\PortalFinish.cs" />
+    <Compile Include="Assets\Scripts\PortalRestart.cs" />
     <Compile Include="Assets\Scripts\Projectile\SpawnProjectiles.cs" />
     <Compile Include="Assets\Scripts\ProjectileDamage.cs" />
     <Compile Include="Assets\Scripts\ProjectileDamage1.cs" />
