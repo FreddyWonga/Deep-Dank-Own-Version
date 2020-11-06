@@ -81,16 +81,29 @@ public class Highscores : MonoBehaviour
 			highscoresList[i] = new Highscore(username,score);
 			print (highscoresList[i].username + ": " + highscoresList[i].score);
 		}
-        int t;
-        for (int p = 0; p <= highscoresList.Length - 2; p++)
+
+        int k;
+        LinkedList<int> scores = new LinkedList<int>();
+        int[] scoreArray = new int[highscoresList.Length];
+
+        for (k = 0; k < highscoresList.Length; k++)
         {
-            for (int i = 0; i <= highscoresList.Length - 2; i++)
+            scores.AddLast(highscoresList[k].score);
+        }
+
+        scores.CopyTo(scoreArray, 0);
+
+        BubbleSort(scoreArray, scoreArray.Length);
+
+        int j;
+        for (k = 0; k < highscoresList.Length; k++)
+        {
+            for(j = 0; j < scoreArray.Length; j++)
             {
-                if (highscoresList[i].score > highscoresList[i + 1].score)
+                if (highscoresList[k].score == scoreArray[j])
                 {
-                    t = highscoresList[i + 1].score;
-                    highscoresList[i + 1].score = highscoresList[i].score;
-                    highscoresList[i].score = t;
+                    highscoresList[k].score = scoreArray[j];
+                    break;
                 }
             }
         }

@@ -11,7 +11,6 @@ public class SaveFinalScore : MonoBehaviour
     public string ScoreString;
     public GameObject inputField;
     public string finalScore;
-    public LogReader logReader;
     public Score score;
     public StatTracker StatTracker;
     public GameObject SaveButton;
@@ -20,7 +19,6 @@ public class SaveFinalScore : MonoBehaviour
 
     public void SaveScoreName()
     {
-        int playerNumber = logReader.fileManager.logContents.Length + 1;
         int scores = StatTracker.Instance.currentScore;
         theName = inputField.GetComponent<Text>().text;
         highscores = GetComponent<Highscores>();
