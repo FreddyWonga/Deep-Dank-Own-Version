@@ -7,12 +7,14 @@ public class PlayerData : MonoBehaviour
     public Equipment currentHelmet;
     public Equipment currentChest;
     public Equipment currentStaff;
+    public EquipmentManager equipmentManager;
 
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
     }
 
+    //Stores the current equipment infomation
     public void GameReset()
     {
         currentChest = null;

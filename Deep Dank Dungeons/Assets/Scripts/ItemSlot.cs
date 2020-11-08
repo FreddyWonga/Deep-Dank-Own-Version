@@ -12,6 +12,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         RunePlaced = false;
     }
 
+    //If the rune is placed into the runestone slot then set the RunePlaced Bool to true
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("OnDrop");

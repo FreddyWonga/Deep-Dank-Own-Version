@@ -166,6 +166,83 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &81291802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 81291803}
+  - component: {fileID: 81291805}
+  - component: {fileID: 81291804}
+  m_Layer: 5
+  m_Name: Zeros
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &81291803
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81291802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1308000775}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 337}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &81291804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81291802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: b8d1ac8eecda5a54191c05c491227cc5, type: 3}
+    m_FontSize: 150
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "000000000\t\t\t\t\t\t\t\t000000000\n000000000\t\t\t\t000000000\n000000000\t\t\t\t000000000\n000000000\t\t\t\t000000000"
+--- !u!222 &81291805
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81291802}
+  m_CullTransparentMesh: 0
 --- !u!1 &162269579
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,9 +479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dbf55629d9ffa46b63c1b380566fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileManager:
-    logName: Highscores
-    logContents: []
 --- !u!4 &750464034
 Transform:
   m_ObjectHideFlags: 0
@@ -728,6 +802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df217e800fffec43b2f26a6d820d263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sortHighscores: {fileID: 0}
 --- !u!4 &1142006404
 Transform:
   m_ObjectHideFlags: 0
@@ -915,6 +990,7 @@ RectTransform:
   - {fileID: 1737541976}
   - {fileID: 908165566}
   - {fileID: 2019051165}
+  - {fileID: 81291803}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1176,11 +1252,11 @@ MonoBehaviour:
   ScoreString: 
   inputField: {fileID: 861239449}
   finalScore: 
-  logReader: {fileID: 750464033}
   score: {fileID: 0}
   StatTracker: {fileID: 0}
   SaveButton: {fileID: 0}
   highscores: {fileID: 0}
+  zeros: {fileID: 81291802}
 --- !u!1 &1584561010
 GameObject:
   m_ObjectHideFlags: 0

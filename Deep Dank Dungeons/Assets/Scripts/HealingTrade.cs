@@ -18,6 +18,9 @@ public class HealingTrade : MonoBehaviour
         currentCost = 500;
     }
 
+    //If the player enters the area of the healing trade, enable the text displaying the price to heal
+    //If the player presses "E", and they are below max health, and their score is above the price required to heal
+    //Increase player health to max, subtract the cost from the players total score and generate a new cost to heal
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
@@ -39,6 +42,7 @@ public class HealingTrade : MonoBehaviour
         }
     }
 
+    //If the player leaves the range then disable the text displaying the price to heal
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
@@ -47,11 +51,13 @@ public class HealingTrade : MonoBehaviour
         }
     }
 
+    //Update the text to display the current cost to heal
     public void itemTextChange()
     {
         itemPickupText.text = "E to heal -" + currentCost;
     }
 
+    //Randomly increase the current cost by any amount up to 1000 more then the current cost
     private void generateCost()
     {
         updatedCost = Random.Range(currentCost, (currentCost + 1000));

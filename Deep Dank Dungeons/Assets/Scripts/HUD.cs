@@ -6,13 +6,13 @@ public class HUD : MonoBehaviour
 {
     public GameObject DragDrop;
 
-    // Start is called before the first frame update
+    //Disable the rune and runestone
     void Start()
     {
         DragDrop.SetActive(false);
     }
 
-    // Update is called once per frame
+    //Enable the rune and runestone if the the portal active bool is true
     void Update()
     {
         if(PortalFinish.PortalActive == true)

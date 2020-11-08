@@ -5,15 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    // Created by David Borger
-    // Based off this online tutorial https://www.youtube.com/watch?v=_QajrabyTJc&t= 
     public CharacterController controller;
     public LevelBuilder levelBuilder;
 
     public static PlayerController instance;
 
+    private HashID hash;
+
     public Animator movement;
-    private HashIDs hash;
     public float speed = 12f;
 
     Vector3 velocity;
@@ -25,7 +24,7 @@ public class PlayerController : MonoBehaviour
             instance = this;
         }
         movement = GameObject.FindGameObjectWithTag("Character").GetComponent<Animator>();
-        hash = GameObject.FindGameObjectWithTag("GameManager").GetComponent<HashIDs>();
+        hash = GameObject.FindGameObjectWithTag("GameManager").GetComponent<HashID>();
     }
 
     private void Start()
@@ -33,10 +32,9 @@ public class PlayerController : MonoBehaviour
         levelBuilder = FindObjectOfType<LevelBuilder>();
     }
 
+    //Move the player
     void Update()
     {
-
-        
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -47,14 +45,15 @@ public class PlayerController : MonoBehaviour
 
         if(x != 0 || z!= 0)
         {
-            movement.SetBool(hash.walkingBool, true);
+            movement.SetBool(hash.moving, true);
         }
         else
         {
-            movement.SetBool(hash.walkingBool, false);
+            movement.SetBool(hash.moving, false);
         }
     }
 
+    //If player collides with the portal then load the next scene
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Exit")
@@ -62,7 +61,4 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
-   
-   
-
 }

@@ -27,22 +27,27 @@ public class Health : MonoBehaviour
             }
         }
     }
+
+ 
     void Update()
     {
         health = StatTracker.Instance.health;
         MaxHealth = StatTracker.Instance.MaxHealth;
 
+        //Keep health from passing the max health
         if (health > MaxHealth)
         {
             health = MaxHealth;
         }
 
+        //Kill the player and load the death screen if health reaches 0
         if (health <= 0)
         {
             StatTracker.Instance.health = StatTracker.Instance.MaxHealth;
             SceneManager.LoadScene("DeathScreen");
         }
 
+        //disable and enable hearts on the HUD to display current player health
         for (int i = 0; i < Hearts.Length; i++)
         {
             if (i < health)
@@ -66,6 +71,7 @@ public class Health : MonoBehaviour
         }
     }
 
+    //Decrease the current player health by the amount of damage done
     public void DoDamage(int damageAmount)
     {
 

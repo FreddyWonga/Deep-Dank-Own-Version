@@ -21,7 +21,7 @@ public class Mana : MonoBehaviour
                 manaImg[i] = manaImage.GetComponent<Image>();
             }
         }
-    }
+    }//disable and enable mana crystals on the HUD to display current player mana
     void Update()
     {
         if (mana.mana > mana.max_mana)

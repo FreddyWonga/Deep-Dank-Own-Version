@@ -20,7 +20,7 @@ public class FinalScoreDisplay : MonoBehaviour
         currentScore = StatTracker.Instance.currentScore;
     }
 
-
+    //Display the score as the final players score
     void Update()
     {
         scoreSplash.text = "" + scoreValue;

@@ -77,7 +77,7 @@
     <Compile Include="Assets\Scripts\Equipment.cs" />
     <Compile Include="Assets\Scripts\EquipmentManager.cs" />
     <Compile Include="Assets\Scripts\FinalScoreDisplay.cs" />
-    <Compile Include="Assets\Scripts\HashIDs.cs" />
+    <Compile Include="Assets\Scripts\HashID.cs" />
     <Compile Include="Assets\Scripts\HealingTrade.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\Highscores.cs" />
@@ -98,7 +98,6 @@
     <Compile Include="Assets\Scripts\PortalFinish.cs" />
     <Compile Include="Assets\Scripts\PortalRestart.cs" />
     <Compile Include="Assets\Scripts\Projectile\SpawnProjectiles.cs" />
-    <Compile Include="Assets\Scripts\ProjectileDamage.cs" />
     <Compile Include="Assets\Scripts\ProjectileDamage1.cs" />
     <Compile Include="Assets\Scripts\RandomLoot.cs" />
     <Compile Include="Assets\Scripts\Room.cs" />
@@ -106,7 +105,7 @@
     <Compile Include="Assets\Scripts\SaveFinalScore.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\Shooter.cs" />
-    <Compile Include="Assets\Scripts\SortingTesting.cs" />
+    <Compile Include="Assets\Scripts\SortHighscores.cs" />
     <Compile Include="Assets\Scripts\StartRoom.cs" />
     <Compile Include="Assets\Scripts\StatTracker.cs" />
     <None Include="Assets\Dungbeetle\Readme.txt" />

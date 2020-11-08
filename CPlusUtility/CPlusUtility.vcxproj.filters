@@ -20,6 +20,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="CPlusUtility.h">
       <Filter>Header Files</Filter>
     </ClInclude>

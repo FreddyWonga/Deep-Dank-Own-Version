@@ -20,7 +20,7 @@ public class EquipmentManager : MonoBehaviour
     public GameObject yellowStaff;
     public GameObject purpleStaff;
 
-    public GameObject PlayerData;
+    public PlayerData playerData;
 
     public Equipment currentHelmet;
     public Equipment currentChest;
@@ -30,112 +30,105 @@ public class EquipmentManager : MonoBehaviour
     public Text itemPickupText;
     public Shooter shooter;
 
+    //If the player already has armor equipt then equip that armor and staff
     private void Start()
     {
         GetComponent<Shooter>();
         GetComponent<Health>();
-        //itemPickupText = GameObject.FindGameObjectWithTag("PickupText").GetComponent<Text>();
+        GetComponent<PlayerData>();
+        if(playerData.currentHelmet != null)
+        {
+            EquipArmour(playerData.currentHelmet);
+        }
+        if (playerData.currentChest != null)
+        {
+            EquipArmour(playerData.currentChest);
+        }
+        if (playerData.currentStaff != null)
+        {
+            EquipArmour(playerData.currentStaff);
+        }
     }
 
+    //Find what the item is, run the set item function, turn the mesh on for the player and increase the the players stats by the bonus
     public void EquipArmour(Equipment equipment)
     {
         if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Iron_Helmet")
         {
             SetHelmet(equipment);
-            Debug.Log("Before Activated");
             ironHelmet.gameObject.SetActive(true);
-            Debug.Log("After Activated");
+
             StatTracker.Instance.MaxHealth += currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Iron_Chest")
         {
             SetChest(equipment);
-            Debug.Log("Before Activated");
             ironChest.gameObject.SetActive(true);
-            Debug.Log("After Activated");
             StatTracker.Instance.MaxHealth += currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Gold_Helmet")
         {
             SetHelmet(equipment);
-            Debug.Log("Before Activated");
             goldenHelmet.gameObject.SetActive(true);
-            Debug.Log("After Activated");
             StatTracker.Instance.MaxHealth += currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Gold_Chest")
         {
             SetChest(equipment);
-            Debug.Log("Before Activated");
             goldenChest.gameObject.SetActive(true);
-            Debug.Log("After Activated");
             StatTracker.Instance.MaxHealth += currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Mana_Helmet")
         {
             SetHelmet(equipment);
-            Debug.Log("Before Activated");
             manaHelmet.gameObject.SetActive(true);
-            Debug.Log("After Activated");
             StatTracker.Instance.max_mana += currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Mana_Chest")
         {
             SetChest(equipment);
-            Debug.Log("Before Activated");
             manaChest.gameObject.SetActive(true);
-            Debug.Log("After Activated");
             StatTracker.Instance.max_mana += currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Magma_Helmet")
         {
             SetHelmet(equipment);
-            Debug.Log("Before Activated");
             magmaHelmet.gameObject.SetActive(true);
-            Debug.Log("After Activated");
             StatTracker.Instance.max_mana += currentHelmet.data.bonus;
         }
         else if (equipment.data.type == ArmourType.chest && equipment.data.name == "Magma_Chest")
         {
             SetChest(equipment);
-            Debug.Log("Before Activated");
             magmaChest.gameObject.SetActive(true);
-            Debug.Log("After Activated");
             StatTracker.Instance.max_mana += currentChest.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Green Staff")
         {
             SetStaff(equipment);
-            Debug.Log("Before Activated");
             greenStaff.gameObject.SetActive(true);
-            Debug.Log("After Activated");
             StatTracker.Instance.mana_regen_speed += currentStaff.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Blue Staff")
         {
             SetStaff(equipment);
-            Debug.Log("Before Activated");
             blueStaff.gameObject.SetActive(true);
-            Debug.Log("After Activated");
             StatTracker.Instance.mana_regen_speed += currentStaff.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Yellow Staff")
         {
             SetStaff(equipment);
-            Debug.Log("Before Activated");
             yellowStaff.gameObject.SetActive(true);
-            Debug.Log("After Activated");
             StatTracker.Instance.mana_regen_speed += currentStaff.data.bonus;
         }
         else if (equipment.data.type == ArmourType.staff && equipment.data.name == "Purple Staff")
         {
             SetStaff(equipment);
-            Debug.Log("Before Activated");
             purpleStaff.gameObject.SetActive(true);
-            Debug.Log("After Activated");
             StatTracker.Instance.mana_regen_speed += currentStaff.data.bonus;
         }
     }
+
+    //Find what the item is, turn the mesh off for the player and decrease the the players stats by the bonus
     public void UnequipArmour(Equipment equipment)
     {
         if (equipment.data.type == ArmourType.helmet && equipment.data.name == "Iron_Helmet")
@@ -199,6 +192,9 @@ public class EquipmentManager : MonoBehaviour
             StatTracker.Instance.mana_regen_speed -= currentStaff.data.bonus;
         }
     }
+
+    //If player already has an item equipted then unequip the current item and spawn it in the scene
+    //Disable the item being picked up from the scene and set the current helmet to the one picked up
     private void SetHelmet(Equipment helmet)
     {
         if (currentHelmet != null)
@@ -207,6 +203,7 @@ public class EquipmentManager : MonoBehaviour
             UnequipArmour(currentHelmet);
         }
         currentHelmet = helmet;
+        playerData.currentHelmet = helmet;
         helmet.gameObject.SetActive(false);
 
     }
@@ -219,6 +216,7 @@ public class EquipmentManager : MonoBehaviour
             UnequipArmour(currentChest);
         }
         currentChest = chest;
+        playerData.currentChest = chest;
         chest.gameObject.SetActive(false);
     }
     private void SetStaff(Equipment staff)
@@ -229,41 +227,16 @@ public class EquipmentManager : MonoBehaviour
             UnequipArmour(currentStaff);
         }
         currentStaff = staff;
+        playerData.currentStaff = staff;
         staff.gameObject.SetActive(false);
     }
 
+    //Spawn the dropped item in the world and set it to active
     private void SpawnArmour(Equipment armour)
     {
         armour.gameObject.SetActive(true);
         armour.transform.position = itemDropLocation.transform.position;
         armour.transform.localRotation = itemDropLocation.transform.rotation;
     }
-
-//    private void OnTriggerStay(Collider other)
-//    {
-//        if(other.tag == "ItemDrop")
-//        {
-//            itemPickup.SetActive(true);
-//            itemTextChange(other.gameObject.name);
-//        }
-//        if (Input.GetKeyDown(KeyCode.E))
-//        {
-//            this.transform.parent = PlayerData.transform;
-//            itemPickup.SetActive(false);
-//        }
-//    }
-
-//    private void OnTriggerExit(Collider other)
-//    {
-//        if(other.tag == "ItemDrop")
-//        {
-//            itemPickup.SetActive(false);
-//        }
-//    }
-
-//    public void itemTextChange(string itemName)
-//    {
-//        itemPickupText.text = "E to equip";
-//    }
 
 }

@@ -40,7 +40,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 163108808964272210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e773fdfc66a77ba44bb1d5f3cb1204dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 77410f019a6715041a36544c1632f263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingBool: 0
+  moving: 1060167814
+  Attack: 1080829965

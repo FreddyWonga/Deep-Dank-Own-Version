@@ -53,7 +53,7 @@ public class AI_StateManager : MonoBehaviour
         canAttack = true;
     }
 
-    // Start is called before the first frame update
+
     private void Start()
     {
         attackState.Prepare(this);
@@ -65,20 +65,21 @@ public class AI_StateManager : MonoBehaviour
 
     public bool ReadyAttack = true;
 
+    //Triggers the attack animation and starts the attack Coroutine
     public void DoAttack()
     {
         Anim.SetTrigger("Attack");
         StartCoroutine(AttackCheck());
     }
 
+    //Waits for attack animation then checks if the player is in range still
+    //If player is still in range then subtract from the players health
+    //Puts the enemy into a cooldown state before it can attack again and sets the state to chase
     IEnumerator AttackCheck()
     {
-        Debug.Log("AttackCheck Started");
         yield return new WaitForSeconds(waitStartTime);
         if (attackState.Distance < attackState.range)
         {
-            Debug.Log(attackState.Distance);
-            Debug.Log(attackState.range);
             StatTracker.Instance.health = (StatTracker.Instance.health-1);
         }
         SetState(new Chase(this));
@@ -86,9 +87,9 @@ public class AI_StateManager : MonoBehaviour
         ReadyAttack = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Checks if the player is in the enemies agro range
         state = currentState.GetType().ToString();
         if (Target == null)
         {
@@ -97,9 +98,6 @@ public class AI_StateManager : MonoBehaviour
             {
                 if (collider.CompareTag("Player") == true)
                 {
-                    // Check angle and visibility
-                    // Check current state
-                    // Change to chase state
                     Target = collider.transform;
                     SetState(new Chase(this, currentState));
                 }
@@ -116,6 +114,7 @@ public class AI_StateManager : MonoBehaviour
         }
     }
 
+    //Draws the sphere showing the enemies agro range
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
@@ -130,6 +129,7 @@ public class AI_StateManager : MonoBehaviour
         }
     }
 
+    //Sets enemies state
     public void SetState(BehaviourState newState)
     {
         if (newState.ignoreState == false)
@@ -177,6 +177,8 @@ public abstract class BehaviourState
     public virtual void DrawGizmos() { }
 }
 [System.Serializable]
+
+// Idle state just keeps the enemy still and waiting for a player to enter agro range
 public class Idle : BehaviourState
 {
 
@@ -188,7 +190,6 @@ public class Idle : BehaviourState
     public override void Initalize()
     {
         stateManager.Agent.isStopped = false;
-        //FindNewWanderPoint();
     }
 
     public override void Update()
@@ -227,6 +228,7 @@ public class Chase : BehaviourState
         previousState = previous;
     }
 
+    //Sets the default settings such as speed and animations for the chase state
     public override void Initalize()
     {
         movement = stateManager.GetComponent<Animator>();
@@ -236,7 +238,7 @@ public class Chase : BehaviourState
 
     public override void Update()
     {
-
+        //If the enemy is targeting the player, check to see if the player is within chasing range, if not then revert to idle state
         if (stateManager.Target != null)
         {
             movement.SetBool("moving", true);
@@ -283,8 +285,6 @@ public class Attack : BehaviourState
     {
         get
         {
-            Debug.Log(stateManager.name);
-            Debug.Log(PlayerController.instance.name);
             return Vector3.Distance(stateManager.transform.position, PlayerController.instance.transform.position);
         }
     }
@@ -303,13 +303,11 @@ public class Attack : BehaviourState
         previousState = prevState;
     }
 
+    //If the enemy is targeting the player and the player is within attack range, run the DoAttack function, if not continue to chase the player
     public override void Update()
     {
-        // Gizmos.color = Color.red;
         if (stateManager.Target != null) 
         {
-            
-            //Debug.Log($"Distance: {distance} Range: {range}");
             if(Distance <= range) 
             {
                 if(stateManager.ReadyAttack == true)
@@ -320,13 +318,11 @@ public class Attack : BehaviourState
             }
             else 
             {
-                Debug.Log("Not within range");
                 stateManager.SetState(new Chase(stateManager));
             }
         }
         else 
         {
-            Debug.Log("Target lost");
             stateManager.SetState(new Chase(stateManager));
         }
     }

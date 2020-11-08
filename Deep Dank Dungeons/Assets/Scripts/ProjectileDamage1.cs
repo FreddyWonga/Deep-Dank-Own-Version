@@ -6,6 +6,7 @@ public class ProjectileDamage1 : MonoBehaviour
 {
     public int projectileDamage = 1;
 
+    //When the spell touches the enemy and the enemy has more then 0 health, subtract the spells damage from the enemies health
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Enemy")

@@ -20,7 +20,7 @@ public class Score : MonoBehaviour
         currentScore = StatTracker.Instance.currentScore;
     }
 
-
+    //Update the score on the HUD to display the current score
     void Update()
     {
         scoreSplash.text = "" + scoreValue;

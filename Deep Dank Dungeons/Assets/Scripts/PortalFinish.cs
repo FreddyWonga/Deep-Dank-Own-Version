@@ -28,6 +28,8 @@ public class PortalFinish : MonoBehaviour
         }
     }
 
+    //If the runestone has been placed, increase current mana to max, load the next scene, and turn the RunePlaced bool to false
+    //If the player is in the hell layer then load the Sewer scene instead of the next scene
     private void Update()
     {
         if (ItemSlot.RunePlaced == true)

@@ -12,6 +12,8 @@ public class Equipment : MonoBehaviour
         playerData = FindObjectOfType<PlayerData>();
     }
     public ArmourData data;
+
+    //When the player is touching the item and pressing "E" equip the item to the player
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
@@ -22,10 +24,6 @@ public class Equipment : MonoBehaviour
                 this.gameObject.transform.parent = playerData.gameObject.transform;
             }
         }
-        //else
-        //{
-        //    equiptPopup.promptOn = false;
-        //}
     }
 }
 

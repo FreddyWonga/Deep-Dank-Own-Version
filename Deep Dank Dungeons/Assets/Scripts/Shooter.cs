@@ -26,10 +26,8 @@ public class Shooter : MonoBehaviour
         mana = StatTracker.Instance.mana;
         max_mana = StatTracker.Instance.max_mana;
         mana_regen_speed = StatTracker.Instance.mana_regen_speed;
-        //mana = StatTracker.mana;
-        //max_mana = StatTracker.max_mana;
-        //mana_regen_speed = StatTracker.mana_regen_speed;
 
+        //If the player left clicks and they have enough mana, fire a spell and start regenning mana
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (mana >= 1f)
@@ -54,11 +52,11 @@ public class Shooter : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("HIT");
         GameObject.Destroy(projectile);
     }
 
 
+    //Wait for 2 seconds and start regenerating mana based on the mana regen speed bonus from the current staff
     IEnumerator ManaRegen()
     {
         RegenRunning = true;

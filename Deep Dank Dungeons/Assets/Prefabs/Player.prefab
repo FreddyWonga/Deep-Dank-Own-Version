@@ -602,7 +602,7 @@ MonoBehaviour:
   blueStaff: {fileID: 4316086225217499546}
   yellowStaff: {fileID: 5268457291675399284}
   purpleStaff: {fileID: 8684219715001926692}
-  PlayerData: {fileID: 2401406706594220375, guid: e033f122b9487f04680a2389b46c8cc5,
+  playerData: {fileID: 2401406706594220376, guid: e033f122b9487f04680a2389b46c8cc5,
     type: 3}
   currentHelmet: {fileID: 0}
   currentChest: {fileID: 0}

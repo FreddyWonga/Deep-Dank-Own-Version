@@ -15,6 +15,11 @@ public class RandomLoot : MonoBehaviour
     public int helmetDrop;
     public int chestpieceDrop;
 
+
+    //Generate a random number between 1 and 100, if the number is above 85 generate a random number between 1 and 3
+    //if the number is 1 then randomly generate a number between 1 and 100, 0-40 is a green staff, 41-70 is a blue staff, 71-90 is a yellow staff, 91-100 is a purple staff
+    //if the number is 2 then randomly generate a number between 1 and 100, 0-40 is a iron helmet, 41-70 is a mana helmet, 71-90 is a gold helmet, 91-100 is a magma helmet
+    //if the number is 3 then randomly generate a number between 1 and 100, 0-40 is a iron chest, 41-70 is a mana chest, 71-90 is a gold chest, 91-100 is a magma chest
     public void GetRandomItem()
     {
         randomNumber = Random.Range(1, 101);

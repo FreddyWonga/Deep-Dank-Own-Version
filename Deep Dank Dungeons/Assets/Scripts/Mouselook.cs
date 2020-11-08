@@ -7,6 +7,7 @@ public class Mouselook : MonoBehaviour
     Ray ray; 
     RaycastHit rayHit;
 
+    //Turns the player to face the point on the "ground" where the mouse is
     void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
