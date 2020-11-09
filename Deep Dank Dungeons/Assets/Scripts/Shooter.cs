@@ -6,11 +6,13 @@ public class Shooter : MonoBehaviour
 {
     public Rigidbody projectile;
     public float speed = 500f;
-    public float mana = 3f;
-    public float max_mana = 3f;
-    public float mana_regen_speed = 1f;
+    public float mana;
+    public float max_mana;
+    public float mana_regen_speed;
     private bool RegenRunning;
     public Animator shoot;
+
+    public StatTracker StatTracker;
 
     private void Awake()
     {
@@ -21,11 +23,16 @@ public class Shooter : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        mana = StatTracker.Instance.mana;
+        max_mana = StatTracker.Instance.max_mana;
+        mana_regen_speed = StatTracker.Instance.mana_regen_speed;
+
+        //If the player left clicks and they have enough mana, fire a spell and start regenning mana
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (mana >= 1f)
             {
-                mana -= 1f;
+                StatTracker.Instance.mana -= 1f;
                 if (RegenRunning == true)
                 {
                     StopCoroutine(ManaRegen());
@@ -45,11 +52,11 @@ public class Shooter : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("HIT");
         GameObject.Destroy(projectile);
     }
 
 
+    //Wait for 2 seconds and start regenerating mana based on the mana regen speed bonus from the current staff
     IEnumerator ManaRegen()
     {
         RegenRunning = true;
@@ -58,7 +65,7 @@ public class Shooter : MonoBehaviour
         {
             while (mana < max_mana)
             {
-                mana += 1;
+                StatTracker.Instance.mana += 1;
                 yield return new WaitForSeconds(mana_regen_speed);
             }
             RegenRunning = false;

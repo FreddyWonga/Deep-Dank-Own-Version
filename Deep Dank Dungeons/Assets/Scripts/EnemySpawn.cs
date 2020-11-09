@@ -10,6 +10,7 @@ public class EnemySpawn : MonoBehaviour
 
     private int spawnIndex = 0;
 
+    //Spawns chosen number of enemies in the spawn locations in a room
     public void EnemySpawner()
     {
         for (int i = 0; i < spawnAmount; i++)

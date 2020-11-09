@@ -536,6 +536,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 4
   MaxHealth: 4
+  StatTracker: {fileID: 5144973121064347032, guid: 7486daf81157c164b97a827dd946135c,
+    type: 3}
   Hearts:
   - {fileID: 0}
   - {fileID: 0}
@@ -587,34 +589,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0179c8d1fd0d18c4bb562b3b0dce6719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDropLocation: {fileID: 0}
-  ironChest: {fileID: 6134721834114819470, guid: 65490d4b7f1139f44a5ab5cb906f140c,
-    type: 3}
-  ironHelmet: {fileID: 6145425957374467475, guid: 61d61f3f12040604da3fbbba5691bdab,
-    type: 3}
-  goldenChest: {fileID: 4530607256597380102, guid: 2947fa79a2b05c145a202a28d715e81e,
-    type: 3}
-  goldenHelmet: {fileID: 15227431598076185, guid: 1af01bffb81377e46acc541d5bf27d82,
-    type: 3}
-  manaChest: {fileID: 793740072688539554, guid: 828b16dfc7fa44146b32c65d3c7fbf00,
-    type: 3}
-  manaHelmet: {fileID: 4741859523441376094, guid: f2575c05988d3a74cbb07767b0d6bb72,
-    type: 3}
-  magmaChest: {fileID: 7837483238117726522, guid: ca6f24a11a904244b9e3f1476923ff36,
-    type: 3}
-  magmaHelmet: {fileID: 6001052428062363459, guid: bddad0b908f728041a372e3f74636e5f,
-    type: 3}
-  greenStaff: {fileID: 9018476509089012555, guid: 40c7466122da6824d8a7079bd42d7c6c,
-    type: 3}
-  blueStaff: {fileID: 2598741324771310707, guid: f225cbded6f523f46a9187d7e9d87e5d,
-    type: 3}
-  yellowStaff: {fileID: 6134556772707494974, guid: 4f9954b9f260ea246889715ec8438c30,
-    type: 3}
-  purpleStaff: {fileID: 1843127083736970508, guid: 207f09b68b603d44da93faddd8f8addf,
+  itemDropLocation: {fileID: 2959353621416933899}
+  ironChest: {fileID: 3305994141583492049}
+  ironHelmet: {fileID: 299303714351577152}
+  goldenChest: {fileID: 5019421051082069980}
+  goldenHelmet: {fileID: 4102001342145099029}
+  manaChest: {fileID: 7837760868854627589}
+  manaHelmet: {fileID: 6026908347771245702}
+  magmaChest: {fileID: 4112093306976530029}
+  magmaHelmet: {fileID: 398749000596374976}
+  greenStaff: {fileID: 4439309619912094937}
+  blueStaff: {fileID: 4316086225217499546}
+  yellowStaff: {fileID: 5268457291675399284}
+  purpleStaff: {fileID: 8684219715001926692}
+  playerData: {fileID: 2401406706594220376, guid: e033f122b9487f04680a2389b46c8cc5,
     type: 3}
   currentHelmet: {fileID: 0}
   currentChest: {fileID: 0}
-  currentStaff: {fileID: 0}
+  currentStaff: {fileID: -1071025510516796169, guid: 40c7466122da6824d8a7079bd42d7c6c,
+    type: 3}
   itemPickup: {fileID: 0}
   itemPickupText: {fileID: 0}
   shooter: {fileID: 5613871766497184091}
@@ -1872,7 +1865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5897541216151910128
 Transform:
   m_ObjectHideFlags: 0
@@ -2473,7 +2466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3926868578838557947
 Transform:
   m_ObjectHideFlags: 0
@@ -2739,6 +2732,7 @@ MonoBehaviour:
   max_mana: 4
   mana_regen_speed: 1
   shoot: {fileID: 4598622125713098232}
+  StatTracker: {fileID: 0}
 --- !u!1 &5606500138735081469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3810,7 +3804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7135465978485030246
 Transform:
   m_ObjectHideFlags: 0

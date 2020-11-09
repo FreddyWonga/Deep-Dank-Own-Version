@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
-using UnityEditorInternal;
+using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 
 
@@ -19,17 +20,19 @@ public class AI_StateManager : MonoBehaviour
     public TextMesh sceneText;
     [Header("Behaviour Definitions")]
     public AIState initialState = AIState.wander;
-    public Wander wanderState;
+    public Idle wanderState;
     public Chase chaseState;
     public Attack attackState;
     public Animator Anim;
-   public GameObject Sword;
+    public GameObject Sword;
     public bool canAttack = true;
 
     public string state;
     public string targetName;
-
     private BehaviourState currentState;
+
+    public float waitStartTime;
+    public float waitCooldown;
 
 
 
@@ -46,23 +49,47 @@ public class AI_StateManager : MonoBehaviour
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
-        Anim = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Animator>();
+        Anim = GetComponent<Animator>();
         canAttack = true;
-
     }
 
-    // Start is called before the first frame update
+
     private void Start()
     {
+        attackState.Prepare(this);
         if (initialState == AIState.wander)
         {
-            SetState(new Wander(this) { ignoreState = wanderState.ignoreState, boundBox = wanderState.boundBox });
+            SetState(new Idle(this) { ignoreState = wanderState.ignoreState});
         }
     }
 
-    // Update is called once per frame
+    public bool ReadyAttack = true;
+
+    //Triggers the attack animation and starts the attack Coroutine
+    public void DoAttack()
+    {
+        Anim.SetTrigger("Attack");
+        StartCoroutine(AttackCheck());
+    }
+
+    //Waits for attack animation then checks if the player is in range still
+    //If player is still in range then subtract from the players health
+    //Puts the enemy into a cooldown state before it can attack again and sets the state to chase
+    IEnumerator AttackCheck()
+    {
+        yield return new WaitForSeconds(waitStartTime);
+        if (attackState.Distance < attackState.range)
+        {
+            StatTracker.Instance.health = (StatTracker.Instance.health-1);
+        }
+        SetState(new Chase(this));
+        yield return new WaitForSeconds(waitCooldown);
+        ReadyAttack = true;
+    }
+
     void Update()
     {
+        //Checks if the player is in the enemies agro range
         state = currentState.GetType().ToString();
         if (Target == null)
         {
@@ -71,9 +98,6 @@ public class AI_StateManager : MonoBehaviour
             {
                 if (collider.CompareTag("Player") == true)
                 {
-                    // Check angle and visibility
-                    // Check current state
-                    // Change to chase state
                     Target = collider.transform;
                     SetState(new Chase(this, currentState));
                 }
@@ -90,6 +114,7 @@ public class AI_StateManager : MonoBehaviour
         }
     }
 
+    //Draws the sphere showing the enemies agro range
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
@@ -104,6 +129,7 @@ public class AI_StateManager : MonoBehaviour
         }
     }
 
+    //Sets enemies state
     public void SetState(BehaviourState newState)
     {
         if (newState.ignoreState == false)
@@ -124,26 +150,6 @@ public class AI_StateManager : MonoBehaviour
     {
         Target = null;
     }
-
-    public void EnableSword()
-    {
-        Collider[] collisions = Physics.OverlapBox((Vector3)transform.position, new Vector3(4, 5, 4));
-        foreach (Collider collider in collisions)
-        {
-            Debug.Log(collider.tag);
-            if (collider.CompareTag("Player") == true)
-            {
-                print("OUCH");
-                collider.GetComponentInParent<Health>().DoDamage(1);
-
-            }
-        }
-    }
-
-    public void DisableSword()
-    {
-        canAttack = true;
-    }
 }
 
 [System.Serializable]
@@ -159,6 +165,11 @@ public abstract class BehaviourState
         stateManager = sm;
     }
 
+    public virtual void Prepare(AI_StateManager sm) 
+    {
+        stateManager = sm;
+    }
+
     public virtual void Initalize() { }
     public abstract void Update();
     public virtual void Exit() { }
@@ -166,14 +177,12 @@ public abstract class BehaviourState
     public virtual void DrawGizmos() { }
 }
 [System.Serializable]
-public class Wander : BehaviourState
+
+// Idle state just keeps the enemy still and waiting for a player to enter agro range
+public class Idle : BehaviourState
 {
-    public Bounds boundBox;
 
-    private Vector3? targetPos;
-    private float distance;
-
-    public Wander(AI_StateManager sm) : base(sm)
+    public Idle(AI_StateManager sm) : base(sm)
     {
 
     }
@@ -181,20 +190,11 @@ public class Wander : BehaviourState
     public override void Initalize()
     {
         stateManager.Agent.isStopped = false;
-        //FindNewWanderPoint();
     }
 
     public override void Update()
     {
-        if (targetPos != null)
-        {
-            // If AI has a target then switch states
-            //distance = Vector3.Distance(stateManager.transform.position, (Vector3)targetPos);
-            //if (distance <= stateManager.Agent.stoppingDistance)
-            //{
-            //    FindNewWanderPoint();
-            //}
-        }
+
     }
 
     public override void Exit()
@@ -204,35 +204,8 @@ public class Wander : BehaviourState
 
     public override void DrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(boundBox.center, boundBox.size);
-        Gizmos.color = Color.red;
-        if (targetPos != null)
-        {
-            Gizmos.DrawSphere((Vector3)targetPos, 0.5f);
 
-        }
-        targetPos = stateManager.transform.position;
-        Gizmos.DrawCube((Vector3)stateManager.transform.position, new Vector3(4, 5, 4));
     }
-
-    //Vector3 GetRandomPointInBounds()
-    //{
-        //float randomX = Random.Range(-boundBox.extents.x, boundBox.extents.x);
-        //float randomZ = Random.Range(-boundBox.extents.z, boundBox.extents.z);
-        //Vector3 randomVector = new Vector3(randomX, stateManager.transform.position.y + boundBox.center.y, randomZ);
-        //if(boundBox.Contains(randomVector) == false)
-        //{
-        //    randomVector = GetRandomPointInBounds();
-        //}
-        //return randomVector;
-    //}
-
-    //void FindNewWanderPoint()
-    //{
-    //    targetPos = GetRandomPointInBounds();
-    //    stateManager.Agent.SetDestination((Vector3)targetPos);
-    //}
 }
 
 [System.Serializable]
@@ -240,7 +213,11 @@ public class Chase : BehaviourState
 {
     public float chaseSpeed = 5f;
     public Animator movement;
-    private float distance;
+
+    public float distance;
+
+
+    public GameObject enemy;
 
     public Chase(AI_StateManager sm) : base(sm)
     {
@@ -251,6 +228,7 @@ public class Chase : BehaviourState
         previousState = previous;
     }
 
+    //Sets the default settings such as speed and animations for the chase state
     public override void Initalize()
     {
         movement = stateManager.GetComponent<Animator>();
@@ -260,13 +238,14 @@ public class Chase : BehaviourState
 
     public override void Update()
     {
+        //If the enemy is targeting the player, check to see if the player is within chasing range, if not then revert to idle state
         if (stateManager.Target != null)
         {
             movement.SetBool("moving", true);
-            distance = Vector3.Distance(stateManager.transform.position, stateManager.Target.position);
-            if (distance <= stateManager.Agent.stoppingDistance)
+            distance = Vector3.Distance(stateManager.transform.position, PlayerController.instance.transform.position);
+            if (distance <= stateManager.attackState.range)
             {
-                stateManager.SetState(new Attack(stateManager, this));
+                stateManager.SetState(stateManager.attackState);
                 movement.SetBool("moving", false);
             }
             else
@@ -274,7 +253,7 @@ public class Chase : BehaviourState
                 if (distance > stateManager.viewRadius)
                 {
                     stateManager.ClearTarget();
-                    stateManager.SetState(previousState);
+                    stateManager.SetState(new Idle(stateManager));
                 }
                 else
                 {
@@ -287,7 +266,7 @@ public class Chase : BehaviourState
         {
             if (previousState != null)
             {
-                stateManager.SetState(previousState);
+                stateManager.SetState(new Idle(stateManager));
                 movement.SetBool("moving", false);
             }
         }
@@ -297,52 +276,56 @@ public class Chase : BehaviourState
 [System.Serializable]
 public class Attack : BehaviourState
 {
-    public Bounds boundBox;
-
-    private Vector3? targetPos;
-    private float distance;
+    public float range = 3;
+    public LayerMask ignoreMask;
+    public Animator Anim;
     public Animator stab;
+
+    public float Distance 
+    {
+        get
+        {
+            return Vector3.Distance(stateManager.transform.position, PlayerController.instance.transform.position);
+        }
+    }
+
     public override void Initalize()
     {
-       stab= stateManager.GetComponent<Animator>();
-        targetPos = stateManager.transform.position;
-        
+       stab = stateManager.GetComponent<Animator>();
+        if(stateManager.Target == null) 
+        {
+            stateManager.SetState(new Idle(stateManager));
+        }
     }
+
     public Attack(AI_StateManager sm, BehaviourState prevState) : base(sm)
     {
         previousState = prevState;
     }
 
+    //If the enemy is targeting the player and the player is within attack range, run the DoAttack function, if not continue to chase the player
     public override void Update()
     {
-        // Gizmos.color = Color.red;
-
-
-
-        Collider[] collisions = Physics.OverlapBox((Vector3)targetPos, new Vector3(4, 5, 4));
-        foreach (Collider collider in collisions)
+        if (stateManager.Target != null) 
         {
-            Debug.Log(collider.tag);
-            if (collider.CompareTag("Player") == true)
+            if(Distance <= range) 
             {
-                if (stateManager.canAttack)
+                if(stateManager.ReadyAttack == true)
                 {
-                    stab.SetTrigger("Attack");
-                   
-                    stateManager.SetState(previousState);
-                    stateManager.canAttack = false;
-
-                    //collider.GetComponent<playerscript>().damagevoid(1`00090000);
-
+                    stateManager.ReadyAttack = false;
+                    stateManager.DoAttack();
                 }
-
-
             }
-           
+            else 
+            {
+                stateManager.SetState(new Chase(stateManager));
+            }
+        }
+        else 
+        {
+            stateManager.SetState(new Chase(stateManager));
         }
     }
-
-   
 
     public override void Exit()
     {

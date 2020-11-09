@@ -17,18 +17,18 @@ public class Enemy_Health : MonoBehaviour
         randomLoot = GetComponent<RandomLoot>();
     }
 
+    //Subtract players damage from the enemies current health
     public void ApplyDamage(int damage)
     {
         currentHealth -= damage;
     }
 
+    //If health gets to below zero, drop a random item, destroy the enemy and increase the players score by 100
     void Update()
     {
         if (currentHealth <= 0)
         {
-            GameObject boneExplode = Instantiate(BoneExplode, BoneExplodePosition.transform.position, BoneExplodePosition.transform.rotation);
             randomLoot.GetRandomItem();
-            Destroy(boneExplode, 0.75f);
             Destroy(this.gameObject);
             Score.scoreValue += 100;
             

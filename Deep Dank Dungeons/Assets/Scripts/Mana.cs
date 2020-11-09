@@ -10,6 +10,18 @@ public class Mana : MonoBehaviour
     public Sprite emptyMana;
     public Shooter mana;
 
+    private void Start()
+    {
+        for(int i=0; i < manaImg.Length; i++)
+        {
+            GameObject manaImage = GameObject.Find("Mana (" + (i + 1) + ")");
+
+            if(manaImage != null)
+            {
+                manaImg[i] = manaImage.GetComponent<Image>();
+            }
+        }
+    }//disable and enable mana crystals on the HUD to display current player mana
     void Update()
     {
         if (mana.mana > mana.max_mana)
