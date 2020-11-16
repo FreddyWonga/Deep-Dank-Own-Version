@@ -1,0 +1,23 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Networking;
+
+public class Stats : MonoBehaviour
+{
+    [SyncVar]
+    public int playerRating = 0;
+
+    [SyncVar]
+    public GameObject player;
+
+    public static Stats instance;
+
+    public void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+}
