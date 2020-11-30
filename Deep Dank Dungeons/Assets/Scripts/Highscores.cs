@@ -88,9 +88,9 @@ public class Highscores : MonoBehaviour
         {
             int i;
             int randomNum;
-            for (i = 0; i < 9; i++)
+            for (i = 0; i < highscoresList.Length; i++)
             {
-                randomNum = UnityEngine.Random.Range(0, 9);
+                randomNum = UnityEngine.Random.Range(0, highscoresList.Length);
                 Highscore temp = highscoresList[i];
                 highscoresList[i] = highscoresList[randomNum];
                 highscoresList[randomNum] = temp;

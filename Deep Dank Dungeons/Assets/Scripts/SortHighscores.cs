@@ -17,6 +17,12 @@ public class SortHighscores : MonoBehaviour
         highscoresDisplay = GameObject.Find("Highscores").GetComponent<DisplayHighscores>();
     }
 
+    private void OnGUI()
+    {
+        if (GUI.Button(new Rect(430, 700, 160, 30), "Randomize"))
+            randomizeScores();
+    }
+
     //Turn the randomize bool to true and refresh the leaderboard
     public void randomizeScores()
     {

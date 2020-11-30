@@ -91,13 +91,13 @@ public class Spectator : NetworkBehaviour
     public void CmdSetPlayer(GameObject playerInstance)
     {
         Stats.instance.player = playerInstance;
-        RpcSetPlayerRating(Stats.instance.player);
+        RpcSetPlayerRating(Stats.instance.playerRating);
     }
 
     [Command] 
     void CmdResetPlayerInstance()
     {
-        RpcSetPlayerRating(Stats.instance.player);
+        RpcSetPlayerRating(Stats.instance.playerRating);
     }
 
     [ClientRpc]
