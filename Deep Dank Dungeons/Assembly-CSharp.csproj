@@ -101,9 +101,12 @@
     <Compile Include="Assets\Scripts\ProjectileDamage1.cs" />
     <Compile Include="Assets\Scripts\RandomLoot.cs" />
     <Compile Include="Assets\Scripts\Room.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\RoomActivate.cs" />
     <Compile Include="Assets\Scripts\SaveFinalScore.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
     <Compile Include="Assets\Scripts\Shooter.cs" />
     <Compile Include="Assets\Scripts\SortHighscores.cs" />
     <Compile Include="Assets\Scripts\StartRoom.cs" />

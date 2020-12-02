@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":false,"audioPlay":false,"sceneViewState":{"showFog":false,"showMaterialUpdate":false,"showSkybox":true,"showFlares":false,"showImageEffects":false,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-0.16052675247192384,"y":1.502289056777954,"z":19.576452255249025},"rotation":{"x":0.11833693832159043,"y":-0.5211933851242065,"z":0.07304580509662628,"w":0.8421802520751953},"size":9.644081115722657,"orthographic":false}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":false,"showMaterialUpdate":false,"showSkybox":true,"showFlares":false,"showImageEffects":false,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":19.3629207611084,"y":-31.560314178466798,"z":45.113948822021487},"rotation":{"x":0.3239127993583679,"y":0.07509618997573853,"z":-0.025794629007577897,"w":0.9428955316543579},"size":83.78083801269531,"orthographic":false}
+>>>>>>> parent of 48137ab7... Obby Fix
