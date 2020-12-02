@@ -262,6 +262,7 @@ MonoBehaviour:
   - {fileID: 7648231067167856717}
   iterationRange: {x: 3, y: 10}
 <<<<<<< HEAD
+<<<<<<< HEAD
   playerPrefab: {fileID: 1766672243407177420, guid: b5f04596580578444a6a57e5f8e3451e,
     type: 3}
   enemyPrefab: {fileID: 4981177107707241175, guid: 23302b9d9897b29408a6898eb8081dc4,
@@ -1183,6 +1184,9 @@ Transform:
 =======
   playerPrefab: {fileID: 0}
 >>>>>>> parent of 48137ab7... Obby Fix
+=======
+  playerPrefab: {fileID: 0}
+>>>>>>> parent of 48137ab7... Obby Fix
 --- !u!4 &834180651 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7436446549166905237, guid: 45720811bf9a17d4cbddecf6af66e6f1,
@@ -1201,6 +1205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9739ead279cedbc46959ec070bdd0a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1 &855627451
 GameObject:
@@ -3601,6 +3606,8 @@ MonoBehaviour:
   spawnAmount: 1
 --- !u!1 &2093533057
 =======
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
 --- !u!1 &1660684449
 >>>>>>> parent of 48137ab7... Obby Fix
 GameObject:
@@ -3620,10 +3627,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_IsActive: 1
 --- !u!224 &2093533058
 RectTransform:
 =======
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
   m_IsActive: 0
 --- !u!4 &1660684450
 Transform:
@@ -3632,6 +3642,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 2093533057}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -3715,6 +3726,21 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> parent of 48137ab7... Obby Fix
+=======
+  m_GameObject: {fileID: 1660684449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 166, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2979436078390588412}
+  - {fileID: 834180651}
+  - {fileID: 6541061168194401509}
+  - {fileID: 178151407240389737}
+  - {fileID: 7648231067167856715}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> parent of 48137ab7... Obby Fix
 --- !u!1001 &178151407240389736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3722,6 +3748,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1660684450}
     m_Modifications:
+<<<<<<< HEAD
 <<<<<<< HEAD
     - target: {fileID: 1082799056916961402, guid: 56b6ea4e49b7a484981cd8d85a5705c5,
         type: 3}
@@ -3750,6 +3777,8 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2e6331d63b8b88c419389ac8006ee328, type: 2}
 =======
 >>>>>>> parent of 48137ab7... Obby Fix
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
     - target: {fileID: 3890735459095008694, guid: 56b6ea4e49b7a484981cd8d85a5705c5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3759,6 +3788,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+<<<<<<< HEAD
       objectReference: {fileID: 0}
     - target: {fileID: 3890735459095008694, guid: 56b6ea4e49b7a484981cd8d85a5705c5,
         type: 3}
@@ -3809,6 +3839,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room 4
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
       objectReference: {fileID: 0}
     - target: {fileID: 4103522487606227262, guid: 56b6ea4e49b7a484981cd8d85a5705c5,
         type: 3}
@@ -3880,6 +3912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 246c1a6d6333ba3439df7a60cf34686d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1001 &186593003827746538
 PrefabInstance:
@@ -3965,6 +3998,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95c02dc9a097be14381e78acde7caddd, type: 3}
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
 =======
 >>>>>>> parent of 48137ab7... Obby Fix
 --- !u!1001 &2979436078390588411
@@ -4140,6 +4175,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 2811102399726161361, guid: 2632fcadf06851a4fb5d7c1f31cf13ba,
         type: 3}
       propertyPath: m_Color.r
@@ -4195,6 +4231,8 @@ PrefabInstance:
       propertyPath: PlayerData
       value: 
 =======
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
     - target: {fileID: 3972051502417927791, guid: 2632fcadf06851a4fb5d7c1f31cf13ba,
         type: 3}
       propertyPath: m_Enabled
@@ -4214,6 +4252,9 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+<<<<<<< HEAD
+>>>>>>> parent of 48137ab7... Obby Fix
+=======
 >>>>>>> parent of 48137ab7... Obby Fix
       objectReference: {fileID: 0}
     - target: {fileID: 8274829505029932041, guid: 2632fcadf06851a4fb5d7c1f31cf13ba,
@@ -4256,6 +4297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a1c17f9a512d9419480e994aa068ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1001 &3320576934384023273
 PrefabInstance:
@@ -4349,6 +4391,8 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 186593003827746538}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
 =======
 >>>>>>> parent of 48137ab7... Obby Fix
 --- !u!1001 &6541061168194401508

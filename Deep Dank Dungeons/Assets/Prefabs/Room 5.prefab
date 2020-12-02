@@ -685,11 +685,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+<<<<<<< HEAD
       objectReference: {fileID: 0}
     - target: {fileID: 3025670002336931510, guid: ed76b2e67656e2e40b37ffc94d31440a,
         type: 3}
       propertyPath: m_TagString
       value: Doors
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
       objectReference: {fileID: 0}
     - target: {fileID: 4631421004501514676, guid: ed76b2e67656e2e40b37ffc94d31440a,
         type: 3}
@@ -792,11 +795,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+<<<<<<< HEAD
       objectReference: {fileID: 0}
     - target: {fileID: 3025670002336931510, guid: ed76b2e67656e2e40b37ffc94d31440a,
         type: 3}
       propertyPath: m_TagString
       value: Doors
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
       objectReference: {fileID: 0}
     - target: {fileID: 4631421004501514676, guid: ed76b2e67656e2e40b37ffc94d31440a,
         type: 3}

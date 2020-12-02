@@ -521,6 +521,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 2280526817591815333, guid: ed76b2e67656e2e40b37ffc94d31440a,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -536,6 +537,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Doors
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
 =======
 >>>>>>> parent of 48137ab7... Obby Fix
     - target: {fileID: 4631421004501514676, guid: ed76b2e67656e2e40b37ffc94d31440a,
@@ -636,6 +639,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 2280526817591815333, guid: ed76b2e67656e2e40b37ffc94d31440a,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -651,6 +655,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Doors
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
 =======
 >>>>>>> parent of 48137ab7... Obby Fix
     - target: {fileID: 4631421004501514676, guid: ed76b2e67656e2e40b37ffc94d31440a,
@@ -751,6 +757,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 2280526817591815333, guid: ed76b2e67656e2e40b37ffc94d31440a,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -766,6 +773,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Doors
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
 =======
 >>>>>>> parent of 48137ab7... Obby Fix
     - target: {fileID: 4631421004501514676, guid: ed76b2e67656e2e40b37ffc94d31440a,
@@ -961,6 +970,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 2280526817591815333, guid: ed76b2e67656e2e40b37ffc94d31440a,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -976,6 +986,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Doors
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 48137ab7... Obby Fix
 =======
 >>>>>>> parent of 48137ab7... Obby Fix
     - target: {fileID: 4631421004501514676, guid: ed76b2e67656e2e40b37ffc94d31440a,
