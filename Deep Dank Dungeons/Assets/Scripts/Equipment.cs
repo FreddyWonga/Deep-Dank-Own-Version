@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class Equipment : MonoBehaviour
 {
     public PlayerData playerData;
+    public ArmourData data;
 
-    private void Start()
+    protected void Start()
     {
         playerData = FindObjectOfType<PlayerData>();
     }
-    public ArmourData data;
 
     //When the player is touching the item and pressing "E" equip the item to the player
-    private void OnTriggerStay(Collider other)
+    protected void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
@@ -35,4 +35,5 @@ public struct ArmourData
     public ArmourType type;
     public string name;
     public int bonus;
+    public GameObject prefab;
 }

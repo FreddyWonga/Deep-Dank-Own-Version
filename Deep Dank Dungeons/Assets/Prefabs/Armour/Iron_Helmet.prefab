@@ -284,6 +284,7 @@ MonoBehaviour:
     type: 1
     name: Iron_Helmet
     bonus: 1
+    prefab: {fileID: 6145425957374467475}
 --- !u!135 &5078019249492262966
 SphereCollider:
   m_ObjectHideFlags: 0

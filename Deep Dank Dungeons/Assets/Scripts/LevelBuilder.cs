@@ -58,9 +58,24 @@ public class LevelBuilder : MonoBehaviour
         Debug.Log("level generator finished");
 
         //place player
-        player = Instantiate(playerPrefab) as PlayerController;
-        player.transform.position = startRoom.playerStart.position;
-        player.transform.rotation = startRoom.playerStart.rotation;
+        PlayerData pData = FindObjectOfType<PlayerData>();
+        if (pData.playerInstance == null)
+        {
+            Vector3 spawnPos = new Vector3(startRoom.playerStart.position.x, 1.8f, startRoom.playerStart.position.z);
+            player = Instantiate(playerPrefab, spawnPos, startRoom.playerStart.rotation) as PlayerController;
+            pData.playerInstance = player.gameObject;
+            DontDestroyOnLoad(player);
+        }
+        else 
+        {
+            pData.playerInstance.GetComponent<CharacterController>().enabled = false;
+            pData.playerInstance.transform.position = new Vector3(startRoom.playerStart.position.x, 1.8f, startRoom.playerStart.position.z); ;
+            pData.playerInstance.transform.rotation = startRoom.playerStart.rotation;
+            pData.playerInstance.GetComponent<CharacterController>().enabled = true;
+        }
+        pData.playerInstance.GetComponent<Health>().AssignHealthUI();
+        pData.playerInstance.GetComponent<Mana>().AssignManaUI();
+
     }
     void PlaceStartRoom()
     {

@@ -6,71 +6,51 @@ public class Shooter : MonoBehaviour
 {
     public Rigidbody projectile;
     public float speed = 500f;
-    public float mana;
-    public float max_mana;
-    public float mana_regen_speed;
-    private bool RegenRunning;
     public Animator shoot;
 
     public StatTracker StatTracker;
+
+    private float timer = 0;
 
     private void Awake()
     {
         shoot = GameObject.FindGameObjectWithTag("Character").GetComponent<Animator>();
     }
 
-
     // Update is called once per frame
     private void Update()
     {
-        mana = StatTracker.Instance.mana;
-        max_mana = StatTracker.Instance.max_mana;
-        mana_regen_speed = StatTracker.Instance.mana_regen_speed;
-
         //If the player left clicks and they have enough mana, fire a spell and start regenning mana
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (mana >= 1f)
+            if (StatTracker.Instance.mana >= 1f)
             {
                 StatTracker.Instance.mana -= 1f;
-                if (RegenRunning == true)
-                {
-                    StopCoroutine(ManaRegen());
-                }
-
                 shoot.SetTrigger("cast");
 
                 Rigidbody instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as Rigidbody;
                 instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
                 GameObject.Destroy(instantiatedProjectile.gameObject, 10f);
-                if (RegenRunning == false)
+                timer = 0;
+            }
+        }
+        
+        if(timer < StatTracker.Instance.mana_regen_speed) 
+        {
+            timer += Time.deltaTime;
+            if(timer >= StatTracker.Instance.mana_regen_speed) 
+            {
+                if(StatTracker.Instance.mana < StatTracker.Instance.max_mana) 
                 {
-                    StartCoroutine(ManaRegen());
+                    StatTracker.Instance.mana++;
+                    timer = 0;
                 }
+                //reset to,timer
             }
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         GameObject.Destroy(projectile);
-    }
-
-
-    //Wait for 2 seconds and start regenerating mana based on the mana regen speed bonus from the current staff
-    IEnumerator ManaRegen()
-    {
-        RegenRunning = true;
-        yield return new WaitForSeconds(2);
-        if (mana != max_mana)
-        {
-            while (mana < max_mana)
-            {
-                StatTracker.Instance.mana += 1;
-                yield return new WaitForSeconds(mana_regen_speed);
-            }
-            RegenRunning = false;
-        }
-        
-
     }
 }

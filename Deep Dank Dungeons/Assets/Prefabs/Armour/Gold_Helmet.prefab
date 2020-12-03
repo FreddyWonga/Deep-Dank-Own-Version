@@ -94,10 +94,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
   data:
     type: 1
     name: Gold_Helmet
     bonus: 2
+    prefab: {fileID: 15227431598076185}
 --- !u!135 &4317616513354735808
 SphereCollider:
   m_ObjectHideFlags: 0

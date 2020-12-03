@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
+    public GameObject playerInstance;
+
     public Equipment currentHelmet;
     public Equipment currentChest;
     public Equipment currentStaff;

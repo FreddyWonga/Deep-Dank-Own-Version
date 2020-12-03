@@ -295,3 +295,4 @@ MonoBehaviour:
     type: 2
     name: Gold_Chest
     bonus: 4
+    prefab: {fileID: 4530607256597380102}

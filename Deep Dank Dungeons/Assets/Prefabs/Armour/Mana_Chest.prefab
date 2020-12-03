@@ -277,10 +277,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
   data:
     type: 2
     name: Mana_Chest
     bonus: 2
+    prefab: {fileID: 7837483238117726522}
 --- !u!135 &7273319605107112728
 SphereCollider:
   m_ObjectHideFlags: 0

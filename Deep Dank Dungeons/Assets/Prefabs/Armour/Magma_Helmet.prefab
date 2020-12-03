@@ -185,10 +185,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
   data:
     type: 1
     name: Magma_Helmet
     bonus: 2
+    prefab: {fileID: 4741859523441376094}
 --- !u!135 &6481645135967166816
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -189,7 +189,10 @@ public class Idle : BehaviourState
 
     public override void Initalize()
     {
-        stateManager.Agent.isStopped = false;
+        //if (stateManager.Agent.isOnNavMesh == true)
+        //{
+            stateManager.Agent.isStopped = false;
+        //}
     }
 
     public override void Update()

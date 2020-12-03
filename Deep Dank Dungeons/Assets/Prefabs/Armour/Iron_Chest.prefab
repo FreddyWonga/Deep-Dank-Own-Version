@@ -191,6 +191,7 @@ MonoBehaviour:
     type: 2
     name: Iron_Chest
     bonus: 2
+    prefab: {fileID: 6134721834114819470}
 --- !u!135 &4146724881523814220
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4388240433699816338}
   - component: {fileID: 4066467607813418132}
   - component: {fileID: 2492770913231467453}
+  - component: {fileID: 2697365991973251721}
   m_Layer: 0
   m_Name: Iron_Helmet
   m_TagString: Untagged
@@ -170,6 +171,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2697365991973251721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299303714351577152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  data:
+    type: 1
+    name: Iron_Helmet
+    bonus: 1
+    prefab: {fileID: 6145425957374467475, guid: 61d61f3f12040604da3fbbba5691bdab,
+      type: 3}
 --- !u!1 &327979996716857433
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +232,7 @@ GameObject:
   - component: {fileID: 2283275895326250031}
   - component: {fileID: 3471082270406244336}
   - component: {fileID: 8722687886218860567}
+  - component: {fileID: 7243085604541597122}
   m_Layer: 0
   m_Name: Magma_Helmet
   m_TagString: Untagged
@@ -279,6 +300,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7243085604541597122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398749000596374976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  data:
+    type: 1
+    name: Magma_Helmet
+    bonus: 2
+    prefab: {fileID: 4741859523441376094, guid: f2575c05988d3a74cbb07767b0d6bb72,
+      type: 3}
 --- !u!1 &851975017141815501
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,10 +643,6 @@ MonoBehaviour:
   yellowStaff: {fileID: 5268457291675399284}
   purpleStaff: {fileID: 8684219715001926692}
   playerData: {fileID: 2401406706594220376, guid: e033f122b9487f04680a2389b46c8cc5,
-    type: 3}
-  currentHelmet: {fileID: 0}
-  currentChest: {fileID: 0}
-  currentStaff: {fileID: -1071025510516796169, guid: 40c7466122da6824d8a7079bd42d7c6c,
     type: 3}
   itemPickup: {fileID: 0}
   itemPickupText: {fileID: 0}
@@ -1369,6 +1405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4670363251554898810}
   - component: {fileID: 8849947312290679662}
+  - component: {fileID: 62738906945877429}
   m_Layer: 0
   m_Name: Iron_Chest
   m_TagString: Untagged
@@ -1487,6 +1524,25 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00007265108, y: 0.0029764655, z: 0.0012018695}
     m_Extent: {x: 0.004275519, y: 0.005176308, z: 0.003965897}
   m_DirtyAABB: 0
+--- !u!114 &62738906945877429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3305994141583492049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  data:
+    type: 2
+    name: Iron_Chest
+    bonus: 2
+    prefab: {fileID: 6134721834114819470, guid: 65490d4b7f1139f44a5ab5cb906f140c,
+      type: 3}
 --- !u!1 &3893191709648834451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1709,7 @@ GameObject:
   - component: {fileID: 5426099956808452245}
   - component: {fileID: 216743358908446630}
   - component: {fileID: 1756866205410099342}
+  - component: {fileID: 8318237819492993575}
   m_Layer: 0
   m_Name: Gold_Helmet
   m_TagString: Untagged
@@ -1720,6 +1777,24 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8318237819492993575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4102001342145099029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  data:
+    type: 1
+    name: Gold_Helmet
+    bonus: 2
+    prefab: {fileID: 15227431598076185, guid: 1af01bffb81377e46acc541d5bf27d82, type: 3}
 --- !u!1 &4112093306976530029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,6 +1805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5839643427150328851}
   - component: {fileID: 4775020956050486270}
+  - component: {fileID: 319678310244738416}
   m_Layer: 0
   m_Name: Magma_Chest
   m_TagString: Untagged
@@ -1848,6 +1924,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00007265108, y: 0.0029764655, z: 0.0012018695}
     m_Extent: {x: 0.004275519, y: 0.005176308, z: 0.003965897}
   m_DirtyAABB: 0
+--- !u!114 &319678310244738416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4112093306976530029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  data:
+    type: 2
+    name: Magma_Chest
+    bonus: 4
+    prefab: {fileID: 793740072688539554, guid: 828b16dfc7fa44146b32c65d3c7fbf00, type: 3}
 --- !u!1 &4316086225217499546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,6 +1953,7 @@ GameObject:
   - component: {fileID: 5897541216151910128}
   - component: {fileID: 4387597694400630900}
   - component: {fileID: 2473315862610602029}
+  - component: {fileID: 1548953795294882752}
   m_Layer: 0
   m_Name: Blue_Staff
   m_TagString: Untagged
@@ -1927,6 +2022,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1548953795294882752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316086225217499546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  data:
+    type: 3
+    name: Blue Staff
+    bonus: 2
+    prefab: {fileID: 2598741324771310707, guid: f225cbded6f523f46a9187d7e9d87e5d,
+      type: 3}
 --- !u!1 &4415671801113557690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,6 +2082,7 @@ GameObject:
   - component: {fileID: 7910246344062373326}
   - component: {fileID: 8492271706027890963}
   - component: {fileID: 6481177730114036183}
+  - component: {fileID: 5066964546948878675}
   m_Layer: 0
   m_Name: Green_Staff
   m_TagString: Untagged
@@ -2036,6 +2151,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5066964546948878675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4439309619912094937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  data:
+    type: 3
+    name: Green Staff
+    bonus: 3
+    prefab: {fileID: 9018476509089012555, guid: 40c7466122da6824d8a7079bd42d7c6c,
+      type: 3}
 --- !u!1 &4468916324165802719
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,6 +2302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3957264061295037133}
   - component: {fileID: 3428660721790964564}
+  - component: {fileID: 9148346473389036773}
   m_Layer: 0
   m_Name: Gold_Chest
   m_TagString: Untagged
@@ -2286,6 +2421,25 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00007265108, y: 0.0029764655, z: 0.0012018695}
     m_Extent: {x: 0.004275519, y: 0.005176308, z: 0.003965897}
   m_DirtyAABB: 0
+--- !u!114 &9148346473389036773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5019421051082069980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  data:
+    type: 2
+    name: Gold_Chest
+    bonus: 4
+    prefab: {fileID: 4530607256597380102, guid: 2947fa79a2b05c145a202a28d715e81e,
+      type: 3}
 --- !u!1 &5098800954799760342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,6 +2614,7 @@ GameObject:
   - component: {fileID: 3926868578838557947}
   - component: {fileID: 8120393238049748828}
   - component: {fileID: 9107915650667443526}
+  - component: {fileID: 1288911000646345660}
   m_Layer: 0
   m_Name: Yellow_Staff
   m_TagString: Untagged
@@ -2528,6 +2683,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1288911000646345660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5268457291675399284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  data:
+    type: 3
+    name: Yellow Staff
+    bonus: 1
+    prefab: {fileID: 6134556772707494974, guid: 4f9954b9f260ea246889715ec8438c30,
+      type: 3}
 --- !u!1 &5449257470507622013
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,6 +3015,7 @@ GameObject:
   - component: {fileID: 1290562984427314230}
   - component: {fileID: 3605470296352391453}
   - component: {fileID: 3899801701757631354}
+  - component: {fileID: 345820328273777666}
   m_Layer: 0
   m_Name: Mana_Helmet
   m_TagString: Untagged
@@ -2908,6 +3083,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &345820328273777666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6026908347771245702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  data:
+    type: 1
+    name: Mana_Helmet
+    bonus: 1
+    prefab: {fileID: 6001052428062363459, guid: bddad0b908f728041a372e3f74636e5f,
+      type: 3}
 --- !u!1 &6166995029198851665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3349,6 +3543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569126892938983188}
   - component: {fileID: 333891468022530654}
+  - component: {fileID: 5896885901946605032}
   m_Layer: 0
   m_Name: Mana_Chest
   m_TagString: Untagged
@@ -3467,6 +3662,25 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00007265108, y: 0.0029764655, z: 0.0012018695}
     m_Extent: {x: 0.004275519, y: 0.005176308, z: 0.003965897}
   m_DirtyAABB: 0
+--- !u!114 &5896885901946605032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7837760868854627589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  data:
+    type: 2
+    name: Mana_Chest
+    bonus: 2
+    prefab: {fileID: 7837483238117726522, guid: ca6f24a11a904244b9e3f1476923ff36,
+      type: 3}
 --- !u!1 &7839162966898941290
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,6 +4012,7 @@ GameObject:
   - component: {fileID: 7135465978485030246}
   - component: {fileID: 144654191763455370}
   - component: {fileID: 4292578567305850769}
+  - component: {fileID: 6329309698307730672}
   m_Layer: 0
   m_Name: Purple_Staff
   m_TagString: Untagged
@@ -3866,6 +4081,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6329309698307730672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8684219715001926692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  data:
+    type: 3
+    name: Purple Staff
+    bonus: 0
+    prefab: {fileID: 1843127083736970508, guid: 207f09b68b603d44da93faddd8f8addf,
+      type: 3}
 --- !u!1 &8820786392138345656
 GameObject:
   m_ObjectHideFlags: 0

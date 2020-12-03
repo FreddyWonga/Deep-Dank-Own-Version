@@ -191,6 +191,7 @@ MonoBehaviour:
     type: 3
     name: Blue Staff
     bonus: 2
+    prefab: {fileID: 2598741324771310707}
 --- !u!65 &2439132084547184668
 BoxCollider:
   m_ObjectHideFlags: 0

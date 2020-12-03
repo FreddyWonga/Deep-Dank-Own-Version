@@ -17,6 +17,11 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
+        AssignHealthUI();
+    }
+
+    public void AssignHealthUI() 
+    {
         for (int i = 0; i < Hearts.Length; i++)
         {
             GameObject healthImage = GameObject.Find("Health (" + (i + 1) + ")");
@@ -46,27 +51,32 @@ public class Health : MonoBehaviour
             StatTracker.Instance.health = StatTracker.Instance.MaxHealth;
             SceneManager.LoadScene("DeathScreen");
         }
-
-        //disable and enable hearts on the HUD to display current player health
-        for (int i = 0; i < Hearts.Length; i++)
+        else
         {
-            if (i < health)
+            //disable and enable hearts on the HUD to display current player health
+            for (int i = 0; i < Hearts.Length; i++)
             {
-                Hearts[i].sprite = fullHearts;
-            }
-            else
-            {
-                Hearts[i].sprite = emptyHeart;
-            }
+                if (i < health)
+                {
+                    Hearts[i].sprite = fullHearts;
+                }
+                else
+                {
+                    Hearts[i].sprite = emptyHeart;
+                }
 
 
-            if (i < MaxHealth)
-            {
-                Hearts[i].enabled = true;
-            }
-            else
-            {
-                Hearts[i].enabled = false;
+                if (Hearts[i] != null)
+                {
+                    if (i < MaxHealth)
+                    {
+                        Hearts[i].enabled = true;
+                    }
+                    else
+                    {
+                        Hearts[i].enabled = false;
+                    }
+                }
             }
         }
     }

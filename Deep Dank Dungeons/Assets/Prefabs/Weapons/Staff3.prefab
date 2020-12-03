@@ -278,10 +278,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17dc8e5c4a6e654486a2651633f7b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
   data:
     type: 3
     name: Yellow Staff
     bonus: 1
+    prefab: {fileID: 6134556772707494974}
 --- !u!65 &7067053062516102644
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -23,9 +23,12 @@ public class Score : MonoBehaviour
     //Update the score on the HUD to display the current score
     void Update()
     {
-        scoreSplash.text = "" + scoreValue;
-        currentScore = scoreValue;
-        StatTracker.Instance.scoreValue = scoreValue;
-        StatTracker.Instance.currentScore = currentScore;
+        if (scoreSplash != null)
+        {
+            scoreSplash.text = "" + scoreValue;
+            currentScore = scoreValue;
+            StatTracker.Instance.scoreValue = scoreValue;
+            StatTracker.Instance.currentScore = currentScore;
+        }
     }
 }
